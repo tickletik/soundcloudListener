@@ -10,10 +10,10 @@ import Foundation
 
 class Album {
     var name: String
-    var year: Date
+    var year: String
     var cover: String
     
-    init(name: String, year: Date, cover: String) {
+    init(name: String, year: String, cover: String) {
         self.name = name
         self.year = year
         self.cover = cover
