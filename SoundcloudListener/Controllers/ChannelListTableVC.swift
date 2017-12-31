@@ -21,12 +21,10 @@ class ChannelListTableVC: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return channels.count
     }
 
@@ -35,6 +33,7 @@ class ChannelListTableVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChannelCell", for: indexPath)
 
         let channel = channels[indexPath.row]
+        
         cell.textLabel?.text = channel.artist
 
         return cell
