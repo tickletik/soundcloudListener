@@ -66,7 +66,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DiscographyCell" rowHeight="100" id="ItJ-5T-jhZ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DiscographyCell" rowHeight="100" id="ItJ-5T-jhZ" customClass="DiscographyCell" customModule="SoundcloudListener" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ItJ-5T-jhZ" id="qIt-gG-giL">
@@ -113,6 +113,14 @@
                                         </stackView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="firstStack" destination="SDU-6k-sWA" id="naU-Dd-Wfw"/>
+                                    <outlet property="imageViewLeft" destination="veK-rt-JbX" id="Uef-GU-cGI"/>
+                                    <outlet property="imageViewRight" destination="LMt-x1-ixU" id="HR0-OS-vBh"/>
+                                    <outlet property="labelLeft" destination="v64-1K-gLm" id="mgA-GG-Vs7"/>
+                                    <outlet property="labelRight" destination="OEh-xj-axk" id="EPl-x8-qB2"/>
+                                    <outlet property="secondStack" destination="0Re-hX-IIg" id="JYb-gD-Z8m"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

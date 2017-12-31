@@ -8,10 +8,16 @@
 
 import UIKit
 
-class DicographyTVCell: UITableViewCell {
+class DiscographyCell: UITableViewCell {
 
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var iview: UIView!
+    @IBOutlet weak var imageViewLeft: UIImageView!
+    @IBOutlet weak var labelLeft: UILabel!
+    
+    @IBOutlet weak var imageViewRight: UIImageView!
+    @IBOutlet weak var labelRight: UILabel!
+    
+    @IBOutlet weak var firstStack: UIStackView!
+    @IBOutlet weak var secondStack: UIStackView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
