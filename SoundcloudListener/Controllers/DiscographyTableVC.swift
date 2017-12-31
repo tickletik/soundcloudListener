@@ -16,6 +16,13 @@ class DiscographyTableVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        
+        // set the channel to the default value
+        channel = Channel.channelData[0]
+        
+        if let channel = channel {
+            discography = channel.discography
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,7 +39,7 @@ class DiscographyTableVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 7
+        return discography.count / 2
     }
 
     
