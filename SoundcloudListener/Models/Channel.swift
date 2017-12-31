@@ -30,10 +30,12 @@ class Channel {
             
             
             let kansas = Channel(artist: "Kansas", listeners: 324, coverURL: "Kansas - Point of Know Return.jpg" )
+            
             kansas.discography.append(Album(name: "Point of Know Return", year: "1977", cover: "Kansas - Point of Know Return.jpg"))
             kansas.discography.append(Album(name: "Song for America", year: "1975", cover: "Kansas_-_Song_for_America.jpg"))
             kansas.discography.append(Album(name: "Kansas", year: "1974", cover: "Kansas_-_Kansas.jpg"))
             kansas.discography.append(Album(name: "Leftoverture", year: "1976", cover: "Kansas_-_Leftoverture.jpg"))
+            
             channelArray.append(kansas)
             
             channelArray.append(Channel(artist: "Red Hot Chili Peppers", listeners: 2005, coverURL: "red hot chili peppers.jpg"))

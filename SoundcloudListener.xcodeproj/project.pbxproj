@@ -15,6 +15,7 @@
 		E37753461FF9097D00EB8E31 /* ChannelListTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37753451FF9097D00EB8E31 /* ChannelListTableVC.swift */; };
 		E37753491FF90AA200EB8E31 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37753481FF90AA200EB8E31 /* Channel.swift */; };
 		E377534B1FF91F1500EB8E31 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = E377534A1FF91F1500EB8E31 /* Album.swift */; };
+		E377534D1FF9248900EB8E31 /* DiscographyTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E377534C1FF9248900EB8E31 /* DiscographyTableVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		E37753451FF9097D00EB8E31 /* ChannelListTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChannelListTableVC.swift; path = SoundcloudListener/Controllers/ChannelListTableVC.swift; sourceTree = SOURCE_ROOT; };
 		E37753481FF90AA200EB8E31 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		E377534A1FF91F1500EB8E31 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		E377534C1FF9248900EB8E31 /* DiscographyTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscographyTableVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				E37753451FF9097D00EB8E31 /* ChannelListTableVC.swift */,
+				E377534C1FF9248900EB8E31 /* DiscographyTableVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E37753361FF908DE00EB8E31 /* SoundcloudListener.xcdatamodeld in Sources */,
+				E377534D1FF9248900EB8E31 /* DiscographyTableVC.swift in Sources */,
 				E37753491FF90AA200EB8E31 /* Channel.swift in Sources */,
 				E377532E1FF908DE00EB8E31 /* AppDelegate.swift in Sources */,
 				E37753461FF9097D00EB8E31 /* ChannelListTableVC.swift in Sources */,
