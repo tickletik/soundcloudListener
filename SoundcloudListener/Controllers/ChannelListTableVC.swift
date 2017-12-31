@@ -34,12 +34,15 @@ class ChannelListTableVC: UITableViewController {
 
         let channel = channels[indexPath.row]
         
+        cell.imageView?.image = UIImage(named: channel.coverURL)
+        
+        
         cell.textLabel?.text = channel.artist
+        cell.detailTextLabel?.text = "(\(channel.listeners) listeners)"
 
         return cell
     }
     
-
 
     /*
     // MARK: - Navigation
