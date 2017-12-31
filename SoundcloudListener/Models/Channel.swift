@@ -12,11 +12,16 @@ class Channel {
     var artist: String
     var listeners: Int
     var coverURL:String
+    
+    var discography: [Album]
 
+    
     init(artist: String, listeners: Int, coverURL: String) {
         self.artist = artist
         self.listeners = listeners
         self.coverURL = coverURL
+        
+        self.discography = []
     }
     
     static var channelData:[Channel] {

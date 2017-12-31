@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Popular Artists-->
         <scene sceneID="b4A-xE-b5N">
             <objects>
                 <tableViewController id="adr-wh-cIZ" customClass="ChannelListTableVC" customModule="SoundcloudListener" customModuleProvider="target" sceneMemberID="viewController">
@@ -48,11 +48,11 @@
                             <outlet property="delegate" destination="adr-wh-cIZ" id="9lA-27-Jzk"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="BUO-5Z-PRP"/>
+                    <navigationItem key="navigationItem" title="Popular Artists" id="BUO-5Z-PRP"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="13q-no-fHO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="353" y="163"/>
+            <point key="canvasLocation" x="167" y="161"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bbn-AL-9SJ">
@@ -61,6 +61,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cAy-mT-MGM">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="23"/>
+                            <color key="textColor" red="0.56862745100000001" green="0.1058823529" blue="0.0039215686269999999" alpha="1" colorSpace="deviceRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="adr-wh-cIZ" kind="relationship" relationship="rootViewController" id="MnS-Kx-afb"/>
