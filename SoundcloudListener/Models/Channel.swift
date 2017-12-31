@@ -18,5 +18,25 @@ class Channel {
         self.listeners = listeners
         self.coverURL = coverURL
     }
+    
+    static var channelData:[Channel] {
+        get {
+            var channelArray = [Channel]()
+            
+            channelArray.append(Channel(artist: "Kansas", listeners: 324, coverURL: "Kansas - Point of Know Return.jpg" ))
+            
+            channelArray.append(Channel(artist: "Red Hot Chili Peppers", listeners: 2005, coverURL: "red hot chili peppers.jpg"))
+            
+            channelArray.append(Channel(artist: "Boston", listeners: 6032, coverURL: "Kansas - Point of Know Return.jpg"))
+            
+            channelArray.append(Channel(artist: "Madness", listeners: 230, coverURL: "Madness - One Step Beyond.jpg"))
+            
+            channelArray.append(Channel(artist: "Kook and the Gang", listeners: 783, coverURL: "koolandthegang.jpg"))
+            
+            channelArray.append(Channel(artist: "The Specials", listeners: 67, coverURL: "Specials uk front.jpg"))
+            
+            return channelArray
+        }
+    }
 }
 
