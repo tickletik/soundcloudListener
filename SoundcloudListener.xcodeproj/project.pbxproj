@@ -12,7 +12,8 @@
 		E37753361FF908DE00EB8E31 /* SoundcloudListener.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E37753341FF908DE00EB8E31 /* SoundcloudListener.xcdatamodeld */; };
 		E37753381FF908DE00EB8E31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E37753371FF908DE00EB8E31 /* Assets.xcassets */; };
 		E377533B1FF908DE00EB8E31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E37753391FF908DE00EB8E31 /* LaunchScreen.storyboard */; };
-		E37753461FF9097D00EB8E31 /* BandList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37753451FF9097D00EB8E31 /* BandList.swift */; };
+		E37753461FF9097D00EB8E31 /* ChannelListTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37753451FF9097D00EB8E31 /* ChannelListTableVC.swift */; };
+		E37753491FF90AA200EB8E31 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37753481FF90AA200EB8E31 /* Channel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +24,8 @@
 		E37753371FF908DE00EB8E31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E377533A1FF908DE00EB8E31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E377533C1FF908DE00EB8E31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E37753451FF9097D00EB8E31 /* BandList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BandList.swift; path = SoundcloudListener/Controllers/BandList.swift; sourceTree = SOURCE_ROOT; };
+		E37753451FF9097D00EB8E31 /* ChannelListTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChannelListTableVC.swift; path = SoundcloudListener/Controllers/ChannelListTableVC.swift; sourceTree = SOURCE_ROOT; };
+		E37753481FF90AA200EB8E31 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		E37753431FF9091A00EB8E31 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E37753481FF90AA200EB8E31 /* Channel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -86,7 +89,7 @@
 		E37753471FF9098F00EB8E31 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E37753451FF9097D00EB8E31 /* BandList.swift */,
+				E37753451FF9097D00EB8E31 /* ChannelListTableVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -164,8 +167,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E37753361FF908DE00EB8E31 /* SoundcloudListener.xcdatamodeld in Sources */,
+				E37753491FF90AA200EB8E31 /* Channel.swift in Sources */,
 				E377532E1FF908DE00EB8E31 /* AppDelegate.swift in Sources */,
-				E37753461FF9097D00EB8E31 /* BandList.swift in Sources */,
+				E37753461FF9097D00EB8E31 /* ChannelListTableVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

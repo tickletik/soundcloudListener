@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BandList: UITableViewController {
+class ChannelListTableVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
