@@ -10,6 +10,9 @@ import UIKit
 
 class DicographyTVCell: UITableViewCell {
 
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var iview: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
