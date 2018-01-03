@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6dR-Ow-sAf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lYa-e1-iDf">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -56,6 +57,31 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="13q-no-fHO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="167" y="161"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="h7E-u5-jrX">
+            <objects>
+                <viewController id="lYa-e1-iDf" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vCD-8v-YJf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Boston - Dont Look Back" translatesAutoresizingMaskIntoConstraints="NO" id="tA6-oM-Pbl">
+                                <rect key="frame" x="16" y="36" width="343" height="300"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tA6-oM-Pbl" firstAttribute="leading" secondItem="iQL-X5-z6p" secondAttribute="leading" constant="16" id="JY4-4w-10Q"/>
+                            <constraint firstItem="iQL-X5-z6p" firstAttribute="trailing" secondItem="tA6-oM-Pbl" secondAttribute="trailing" constant="16" id="d3c-kh-NgC"/>
+                            <constraint firstItem="tA6-oM-Pbl" firstAttribute="top" secondItem="iQL-X5-z6p" secondAttribute="top" constant="16" id="nJl-kH-6Gm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="iQL-X5-z6p"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="52t-Kw-Xfh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="95" y="947"/>
         </scene>
         <!--Discography TableVC-->
         <scene sceneID="4Qw-Qc-pQN">
@@ -161,6 +187,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Boston - Dont Look Back" width="300" height="300"/>
         <image name="Kansas_-_Kansas" width="300" height="300"/>
         <image name="Kansas_-_Song_for_America" width="300" height="300"/>
     </resources>

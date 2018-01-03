@@ -31,7 +31,7 @@
 		E377534A1FF91F1500EB8E31 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		E377534C1FF9248900EB8E31 /* DiscographyTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscographyTableVC.swift; sourceTree = "<group>"; };
 		E377534E1FF94E3D00EB8E31 /* DiscographyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscographyCell.swift; sourceTree = "<group>"; };
-		E3C89F251FFD09F9008FD109 /* ChannelListTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChannelListTableVC.swift; path = /Users/ronny/projects/courses/swift/xcode/labs/quiz6/SoundcloudListener/LastFM/Controllers/ChannelListTableVC.swift; sourceTree = "<absolute>"; };
+		E3C89F251FFD09F9008FD109 /* ChannelListTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListTableVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
