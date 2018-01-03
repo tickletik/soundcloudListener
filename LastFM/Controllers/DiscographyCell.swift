@@ -19,8 +19,7 @@ class DiscographyCell: UITableViewCell {
     @IBOutlet weak var firstStack: UIStackView!
     @IBOutlet weak var secondStack: UIStackView!
     
-    var albumLeft: Album?
-    var albumRight: Album?
+    var albums: [AlbumEnum: Album?] = [AlbumEnum: Album?]()
     
     let leftGestureTap = UITapGestureRecognizer()
     let rightGestureTap = UITapGestureRecognizer()
@@ -33,6 +32,9 @@ class DiscographyCell: UITableViewCell {
     func setAlbum(album: Album?, _ leftright: AlbumEnum) {
         let imageView = leftright == .left ? imageViewLeft : imageViewRight
         let label = leftright == .left ? labelLeft : labelRight
+        
+        
+        albums[leftright] = album
         
         if let album = album {
             label?.text = album.name
@@ -61,10 +63,12 @@ class DiscographyCell: UITableViewCell {
     
     @IBAction func tappedLeft() {
         print("tapped Left")
+        print("album: \(String(describing: albums[.left]))")
     }
 
     @IBAction func tappedRight() {
         print("tapped right")
+        print("album: \(String(describing: albums[.right]))")
     }
     
     
