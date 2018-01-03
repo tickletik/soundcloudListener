@@ -12,7 +12,7 @@ class Song: CustomStringConvertible {
     
     var description: String {
         get {
-            return "\(track). \(name) (\(time)"
+            return "\(track). \(name) (\(time))"
         }
     }
     
