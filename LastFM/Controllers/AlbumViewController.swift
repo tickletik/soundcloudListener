@@ -21,7 +21,7 @@ class AlbumViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrackCell", for: indexPath)
         
-        cell.textLabel?.text = album.tracks[indexPath.row].name
+        cell.textLabel?.text = album.tracks[indexPath.row].description
         
         return cell
     }
