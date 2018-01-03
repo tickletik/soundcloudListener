@@ -12,7 +12,7 @@
         <!--Popular Artists-->
         <scene sceneID="b4A-xE-b5N">
             <objects>
-                <tableViewController id="adr-wh-cIZ" customClass="ChannelListTableVC" customModule="SoundcloudListener" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="adr-wh-cIZ" customClass="ChannelListTableVC" customModule="LastFM" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="skw-oU-QCG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -60,13 +60,13 @@
         <!--Discography TableVC-->
         <scene sceneID="4Qw-Qc-pQN">
             <objects>
-                <tableViewController id="1Uz-oK-rDw" customClass="DiscographyTableVC" customModule="SoundcloudListener" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="1Uz-oK-rDw" customClass="DiscographyTableVC" customModule="LastFM" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="57r-61-ua1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DiscographyCell" rowHeight="100" id="ItJ-5T-jhZ" customClass="DiscographyCell" customModule="SoundcloudListener" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DiscographyCell" rowHeight="100" id="ItJ-5T-jhZ" customClass="DiscographyCell" customModule="LastFM" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ItJ-5T-jhZ" id="qIt-gG-giL">

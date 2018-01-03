@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/ronny/projects/courses/swift/xcode/labs/quiz6/SoundcloudListener/LastFM.xcodeproj">
+      location = "group:/Users/ronny/projects/courses/swift/xcode/labs/quiz6/SoundcloudListener/LastFM/Controllers/ChannelListTableVC.swift">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>
