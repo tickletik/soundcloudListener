@@ -37,9 +37,14 @@ class DiscographyTableVC: UITableViewController {
         return 1
     }
 
+    func roundUp(value: Int, divisor: Int) -> Int {
+        let rem = value % divisor
+        return rem == 0 ? value : value + divisor - rem
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return discography.count / 2
+        return roundUp(value: discography.count, divisor: 2)
     }
 
     

@@ -20,7 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E377532A1FF908DE00EB8E31 /* SoundcloudListener.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundcloudListener.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E377532A1FF908DE00EB8E31 /* LastFM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LastFM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E377532D1FF908DE00EB8E31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E37753321FF908DE00EB8E31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E37753351FF908DE00EB8E31 /* SoundcloudListener.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SoundcloudListener.xcdatamodel; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 		E377532B1FF908DE00EB8E31 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E377532A1FF908DE00EB8E31 /* SoundcloudListener.app */,
+				E377532A1FF908DE00EB8E31 /* LastFM.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,9 +106,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E37753291FF908DE00EB8E31 /* SoundcloudListener */ = {
+		E37753291FF908DE00EB8E31 /* LastFM */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E377533F1FF908DE00EB8E31 /* Build configuration list for PBXNativeTarget "SoundcloudListener" */;
+			buildConfigurationList = E377533F1FF908DE00EB8E31 /* Build configuration list for PBXNativeTarget "LastFM" */;
 			buildPhases = (
 				E37753261FF908DE00EB8E31 /* Sources */,
 				E37753271FF908DE00EB8E31 /* Frameworks */,
@@ -118,9 +118,9 @@
 			);
 			dependencies = (
 			);
-			name = SoundcloudListener;
+			name = LastFM;
 			productName = SoundcloudListener;
-			productReference = E377532A1FF908DE00EB8E31 /* SoundcloudListener.app */;
+			productReference = E377532A1FF908DE00EB8E31 /* LastFM.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -139,7 +139,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E37753251FF908DE00EB8E31 /* Build configuration list for PBXProject "SoundcloudListener" */;
+			buildConfigurationList = E37753251FF908DE00EB8E31 /* Build configuration list for PBXProject "LastFM" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -152,7 +152,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E37753291FF908DE00EB8E31 /* SoundcloudListener */,
+				E37753291FF908DE00EB8E31 /* LastFM */,
 			);
 		};
 /* End PBXProject section */
@@ -347,7 +347,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E37753251FF908DE00EB8E31 /* Build configuration list for PBXProject "SoundcloudListener" */ = {
+		E37753251FF908DE00EB8E31 /* Build configuration list for PBXProject "LastFM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E377533D1FF908DE00EB8E31 /* Debug */,
@@ -356,7 +356,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E377533F1FF908DE00EB8E31 /* Build configuration list for PBXNativeTarget "SoundcloudListener" */ = {
+		E377533F1FF908DE00EB8E31 /* Build configuration list for PBXNativeTarget "LastFM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E37753401FF908DE00EB8E31 /* Debug */,
