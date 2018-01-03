@@ -11,15 +11,17 @@ import Foundation
 class Album: CustomStringConvertible {
     var description: String {
         get {
-            return "Album \(name)"
+            return "Album \(artist.name) - \(name)"
         }
     }
     
+    var artist: Artist
     var name: String
     var year: String
     var cover: String
     
-    init(name: String, year: String, cover: String) {
+    init(artist: Artist, name: String, year: String, cover: String) {
+        self.artist = artist
         self.name = name
         self.year = year
         self.cover = cover

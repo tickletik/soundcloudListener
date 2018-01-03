@@ -63,12 +63,21 @@ class DiscographyCell: UITableViewCell {
     
     @IBAction func tappedLeft() {
         print("tapped Left")
-        print("album: \(String(describing: albums[.left]))")
+        
+        if let album = albums[.left] {
+            print("album: \(String(describing: album))")
+        } else {
+            print("album is not set")
+        }
     }
 
     @IBAction func tappedRight() {
         print("tapped right")
-        print("album: \(String(describing: albums[.right]))")
+        if let album = albums[.right] {
+            print("album: \(String(describing: album))")
+        } else {
+            print("album is not set")
+        }
     }
     
     

@@ -31,19 +31,19 @@ class Artist {
             
             let kansas = Artist(name: "Kansas", listeners: 324, coverURL: "Kansas - Point of Know Return.jpg" )
             
-            kansas.discography.append(Album(name: "Point of Know Return", year: "1977", cover: "Kansas - Point of Know Return.jpg"))
-            kansas.discography.append(Album(name: "Song for America", year: "1975", cover: "Kansas_-_Song_for_America.jpg"))
-            kansas.discography.append(Album(name: "Kansas", year: "1974", cover: "Kansas_-_Kansas.jpg"))
-            kansas.discography.append(Album(name: "Leftoverture", year: "1976", cover: "Kansas_-_Leftoverture.jpg"))
+            kansas.discography.append(Album(artist: kansas, name: "Point of Know Return", year: "1977", cover: "Kansas - Point of Know Return.jpg"))
+            kansas.discography.append(Album(artist: kansas, name: "Song for America", year: "1975", cover: "Kansas_-_Song_for_America.jpg"))
+            kansas.discography.append(Album(artist: kansas, name: "Kansas", year: "1974", cover: "Kansas_-_Kansas.jpg"))
+            kansas.discography.append(Album(artist: kansas, name: "Leftoverture", year: "1976", cover: "Kansas_-_Leftoverture.jpg"))
             
             channelArray.append(kansas)
             
             let redhotchili = Artist(name: "Red Hot Chili Peppers", listeners: 2005, coverURL: "red hot chili peppers.jpg")
-            redhotchili.discography.append(Album(name: "The Red Hot Chili Peppers", year: "1984", cover: "RHCP.1984.jpg"))
-            redhotchili.discography.append(Album(name: "Freaky Styley", year: "1985", cover: "RHCP.Freakystyleyalbumcover.jpg"))
-            redhotchili.discography.append(Album(name: "The Uplift Mofo Party Plan", year: "1987", cover: "RHCP.UpliftMofoCover.jpg"))
-            redhotchili.discography.append(Album(name: "Mother's Milk", year: "1989", cover: "RHCP.Mother'sMilkAlbumcover.jpg"))
-            redhotchili.discography.append(Album(name: "Blood Sugar Sex Magic", year: "1991", cover: "RHCP.BSSM.jpg"))
+            redhotchili.discography.append(Album(artist: redhotchili, name: "The Red Hot Chili Peppers", year: "1984", cover: "RHCP.1984.jpg"))
+            redhotchili.discography.append(Album(artist: redhotchili, name: "Freaky Styley", year: "1985", cover: "RHCP.Freakystyleyalbumcover.jpg"))
+            redhotchili.discography.append(Album(artist: redhotchili, name: "The Uplift Mofo Party Plan", year: "1987", cover: "RHCP.UpliftMofoCover.jpg"))
+            redhotchili.discography.append(Album(artist: redhotchili, name: "Mother's Milk", year: "1989", cover: "RHCP.Mother'sMilkAlbumcover.jpg"))
+            redhotchili.discography.append(Album(artist: redhotchili, name: "Blood Sugar Sex Magic", year: "1991", cover: "RHCP.BSSM.jpg"))
             channelArray.append(redhotchili)
             
             
