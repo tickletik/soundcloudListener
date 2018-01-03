@@ -89,7 +89,7 @@ class DiscographyTableVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100.0
+        return 130.0
     }
 
     /*

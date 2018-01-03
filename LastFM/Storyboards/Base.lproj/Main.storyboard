@@ -66,52 +66,58 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DiscographyCell" rowHeight="100" id="ItJ-5T-jhZ" customClass="DiscographyCell" customModule="LastFM" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DiscographyCell" rowHeight="130" id="ItJ-5T-jhZ" customClass="DiscographyCell" customModule="LastFM" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="130"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ItJ-5T-jhZ" id="qIt-gG-giL">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="129.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SDU-6k-sWA" userLabel="firstStack">
-                                            <rect key="frame" x="67" y="0.0" width="77" height="97.5"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9yn-Ai-NjM">
+                                            <rect key="frame" x="16" y="16" width="343" height="97.5"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Kansas_-_Kansas" translatesAutoresizingMaskIntoConstraints="NO" id="veK-rt-JbX">
-                                                    <rect key="frame" x="0.0" y="0.0" width="77" height="77"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="77" id="G2M-hN-AdY"/>
-                                                        <constraint firstAttribute="height" constant="77" id="q0d-Yq-N4f"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v64-1K-gLm">
-                                                    <rect key="frame" x="0.0" y="77" width="77" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </stackView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0Re-hX-IIg" userLabel="secondStack">
-                                            <rect key="frame" x="202" y="0.0" width="77" height="97.5"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Kansas_-_Song_for_America" translatesAutoresizingMaskIntoConstraints="NO" id="LMt-x1-ixU">
-                                                    <rect key="frame" x="0.0" y="0.0" width="77" height="77"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="77" id="C5A-PT-1am"/>
-                                                        <constraint firstAttribute="height" constant="77" id="Hgv-8I-huO"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEh-xj-axk">
-                                                    <rect key="frame" x="0.0" y="77" width="77" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SDU-6k-sWA" userLabel="firstStack">
+                                                    <rect key="frame" x="0.0" y="0.0" width="171.5" height="97.5"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Kansas_-_Kansas" translatesAutoresizingMaskIntoConstraints="NO" id="veK-rt-JbX">
+                                                            <rect key="frame" x="0.0" y="0.0" width="171.5" height="77"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="77" id="q0d-Yq-N4f"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v64-1K-gLm">
+                                                            <rect key="frame" x="0.0" y="77" width="171.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0Re-hX-IIg" userLabel="secondStack">
+                                                    <rect key="frame" x="171.5" y="0.0" width="171.5" height="97.5"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Kansas_-_Song_for_America" translatesAutoresizingMaskIntoConstraints="NO" id="LMt-x1-ixU">
+                                                            <rect key="frame" x="0.0" y="0.0" width="171.5" height="77"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="77" id="Hgv-8I-huO"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEh-xj-axk">
+                                                            <rect key="frame" x="0.0" y="77" width="171.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                         </stackView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="9yn-Ai-NjM" firstAttribute="top" secondItem="qIt-gG-giL" secondAttribute="top" constant="16" id="MRI-m2-xbY"/>
+                                        <constraint firstAttribute="trailing" secondItem="9yn-Ai-NjM" secondAttribute="trailing" constant="16" id="Zmj-Nc-m9Z"/>
+                                        <constraint firstItem="9yn-Ai-NjM" firstAttribute="leading" secondItem="qIt-gG-giL" secondAttribute="leading" constant="16" id="hqA-J5-sCw"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="firstStack" destination="SDU-6k-sWA" id="naU-Dd-Wfw"/>
