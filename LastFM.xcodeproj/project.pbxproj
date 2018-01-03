@@ -48,7 +48,7 @@
 		E37753211FF908DE00EB8E31 = {
 			isa = PBXGroup;
 			children = (
-				E377532C1FF908DE00EB8E31 /* SoundcloudListener */,
+				E377532C1FF908DE00EB8E31 /* LastFM */,
 				E377532B1FF908DE00EB8E31 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,7 +61,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E377532C1FF908DE00EB8E31 /* SoundcloudListener */ = {
+		E377532C1FF908DE00EB8E31 /* LastFM */ = {
 			isa = PBXGroup;
 			children = (
 				E377532D1FF908DE00EB8E31 /* AppDelegate.swift */,
@@ -72,7 +72,7 @@
 				E377533C1FF908DE00EB8E31 /* Info.plist */,
 				E37753341FF908DE00EB8E31 /* SoundcloudListener.xcdatamodeld */,
 			);
-			path = SoundcloudListener;
+			path = LastFM;
 			sourceTree = "<group>";
 		};
 		E37753421FF9090A00EB8E31 /* Storyboards */ = {
