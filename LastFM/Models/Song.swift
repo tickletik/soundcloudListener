@@ -8,7 +8,14 @@
 
 import Foundation
 
-class Song {
+class Song: CustomStringConvertible {
+    
+    var description: String {
+        get {
+            return "\(track). \(name) (\(time)"
+        }
+    }
+    
     var album: Album
     var track: Int
     var name: String

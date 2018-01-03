@@ -12,14 +12,16 @@ class AlbumViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet weak var tableView: UITableView!
     
+    var album = Artist.defaultData[0].discography[0]
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return album.tracks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrackCell", for: indexPath)
         
-        cell.textLabel?.text = "blah"
+        cell.textLabel?.text = album.tracks[indexPath.row].name
         
         return cell
     }
