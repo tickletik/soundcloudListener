@@ -20,10 +20,14 @@ class Album: CustomStringConvertible {
     var year: String
     var cover: String
     
+    var tracks: [Song]
+    
     init(artist: Artist, name: String, year: String, cover: String) {
         self.artist = artist
         self.name = name
         self.year = year
         self.cover = cover
+        
+        self.tracks = []
     }
 }

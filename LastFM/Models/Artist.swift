@@ -31,10 +31,15 @@ class Artist {
             
             let kansas = Artist(name: "Kansas", listeners: 324, coverURL: "Kansas - Point of Know Return.jpg" )
             
-            kansas.discography.append(Album(artist: kansas, name: "Point of Know Return", year: "1977", cover: "Kansas - Point of Know Return.jpg"))
-            kansas.discography.append(Album(artist: kansas, name: "Song for America", year: "1975", cover: "Kansas_-_Song_for_America.jpg"))
-            kansas.discography.append(Album(artist: kansas, name: "Kansas", year: "1974", cover: "Kansas_-_Kansas.jpg"))
-            kansas.discography.append(Album(artist: kansas, name: "Leftoverture", year: "1976", cover: "Kansas_-_Leftoverture.jpg"))
+            let kansas_know =  Album(artist: kansas, name: "Point of Know Return", year: "1977", cover: "Kansas - Point of Know Return.jpg")
+            let kansas_america = Album(artist: kansas, name: "Song for America", year: "1975", cover: "Kansas_-_Song_for_America.jpg")
+            let kansas_kansas = Album(artist: kansas, name: "Kansas", year: "1974", cover: "Kansas_-_Kansas.jpg")
+            let kansas_overture = Album(artist: kansas, name: "Leftoverture", year: "1976", cover: "Kansas_-_Leftoverture.jpg")
+        
+            kansas.discography.append(kansas_know)
+            kansas.discography.append(kansas_america)
+            kansas.discography.append(kansas_kansas)
+            kansas.discography.append(kansas_overture)
             
             channelArray.append(kansas)
             
