@@ -58,10 +58,10 @@
             </objects>
             <point key="canvasLocation" x="167" y="161"/>
         </scene>
-        <!--View Controller-->
+        <!--Album View Controller-->
         <scene sceneID="h7E-u5-jrX">
             <objects>
-                <viewController id="lYa-e1-iDf" sceneMemberID="viewController">
+                <viewController id="lYa-e1-iDf" customClass="AlbumViewController" customModule="LastFM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vCD-8v-YJf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -69,15 +69,40 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Boston - Dont Look Back" translatesAutoresizingMaskIntoConstraints="NO" id="tA6-oM-Pbl">
                                 <rect key="frame" x="16" y="36" width="343" height="300"/>
                             </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="an8-Sz-DiY">
+                                <rect key="frame" x="16" y="352" width="343" height="299"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrackCell" id="sJu-9x-tHN">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sJu-9x-tHN" id="vSv-HM-Pu4">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="lYa-e1-iDf" id="CBk-zE-OZa"/>
+                                    <outlet property="delegate" destination="lYa-e1-iDf" id="XAb-J3-140"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="an8-Sz-DiY" firstAttribute="top" secondItem="tA6-oM-Pbl" secondAttribute="bottom" constant="16" id="7wT-YZ-Skr"/>
+                            <constraint firstItem="an8-Sz-DiY" firstAttribute="leading" secondItem="iQL-X5-z6p" secondAttribute="leading" constant="16" id="8rA-ed-Pe9"/>
+                            <constraint firstItem="iQL-X5-z6p" firstAttribute="trailing" secondItem="an8-Sz-DiY" secondAttribute="trailing" constant="16" id="Bac-Q4-JfN"/>
                             <constraint firstItem="tA6-oM-Pbl" firstAttribute="leading" secondItem="iQL-X5-z6p" secondAttribute="leading" constant="16" id="JY4-4w-10Q"/>
+                            <constraint firstItem="iQL-X5-z6p" firstAttribute="bottom" secondItem="an8-Sz-DiY" secondAttribute="bottom" constant="16" id="aQ9-K4-7Md"/>
                             <constraint firstItem="iQL-X5-z6p" firstAttribute="trailing" secondItem="tA6-oM-Pbl" secondAttribute="trailing" constant="16" id="d3c-kh-NgC"/>
                             <constraint firstItem="tA6-oM-Pbl" firstAttribute="top" secondItem="iQL-X5-z6p" secondAttribute="top" constant="16" id="nJl-kH-6Gm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iQL-X5-z6p"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="an8-Sz-DiY" id="M0B-Ya-Nor"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="52t-Kw-Xfh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
