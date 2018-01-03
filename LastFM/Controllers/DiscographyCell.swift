@@ -19,9 +19,34 @@ class DiscographyCell: UITableViewCell {
     @IBOutlet weak var firstStack: UIStackView!
     @IBOutlet weak var secondStack: UIStackView!
     
+    var albumLeft: Album?
+    var albumRight: Album?
     
     let leftGestureTap = UITapGestureRecognizer()
     let rightGestureTap = UITapGestureRecognizer()
+    
+    enum AlbumEnum {
+        case left
+        case right
+    }
+    
+    func setAlbum(album albumparam: Album, _ leftright: AlbumEnum) {
+        var imageView = imageViewLeft
+        var label = labelLeft
+        var album = albumLeft
+        
+        label?.text = albumparam.name
+        imageView?.image = UIImage(named: albumparam.cover )
+        
+        album = albumparam
+    }
+    
+    func setLeftAlbum(album: Album) {
+        labelLeft?.text = album.name
+        imageViewLeft?.image = UIImage(named: album.cover )
+        
+        albumLeft = album
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
