@@ -30,23 +30,19 @@ class DiscographyCell: UITableViewCell {
         case right
     }
     
-    func setAlbum(album albumparam: Album, _ leftright: AlbumEnum) {
-        var imageView = imageViewLeft
-        var label = labelLeft
-        var album = albumLeft
+    func setAlbum(album: Album?, _ leftright: AlbumEnum) {
+        let imageView = leftright == .left ? imageViewLeft : imageViewRight
+        let label = leftright == .left ? labelLeft : labelRight
         
-        label?.text = albumparam.name
-        imageView?.image = UIImage(named: albumparam.cover )
-        
-        album = albumparam
+        if let album = album {
+            label?.text = album.name
+            imageView?.image = UIImage(named: album.cover )
+        } else {
+            label?.text = ""
+            imageView?.image = nil
+        }
     }
     
-    func setLeftAlbum(album: Album) {
-        labelLeft?.text = album.name
-        imageViewLeft?.image = UIImage(named: album.cover )
-        
-        albumLeft = album
-    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

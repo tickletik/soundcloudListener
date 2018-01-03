@@ -73,16 +73,7 @@ class DiscographyTableVC: UITableViewController {
         let indexSecond = indexFirst + 1
         
         
-        let leftAlbum = discography[indexFirst]
-        
-        /*
-        cell.labelLeft?.text = albumLeft.name
-        cell.imageViewLeft?.image = UIImage(named: albumLeft.cover )
-
-        cell.albumLeft = albumLeft
-        */
-        
-        cell.setAlbum(album: leftAlbum, .left)
+        cell.setAlbum(album: discography[indexFirst], .left)
         
         if indexSecond < discography.count {
             let albumRight = discography[indexSecond]
