@@ -52,13 +52,39 @@ class DiscographyTableVC: UITableViewController {
         }
         return rows
     }
+    
+    func getRow(index: Int) -> Int {
+        var rows = index / 2
+        
+        if index % 2 == 1 {
+            rows += 1
+        }
+        
+        return rows
+    }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:DiscographyCell = tableView.dequeueReusableCell(withIdentifier: "DiscographyCell", for: indexPath) as! DiscographyCell
 
-        // Configure the cell...
+        let rownum = indexPath.row
+        
+        let indexFirst = rownum * 2
+        let indexSecond = indexFirst + 1
+        
+        let albumLeft = discography[indexFirst]
+        cell.labelLeft?.text = albumLeft.name
+        cell.imageViewLeft?.image = UIImage(named: albumLeft.cover )
 
+        if indexSecond < discography.count {
+            let albumRight = discography[indexSecond]
+            cell.labelRight?.text = albumRight.name
+            cell.imageViewRight?.image = UIImage(named: albumRight.cover )
+        } else {
+            cell.labelRight?.text = ""
+            cell.imageViewRight?.image = nil
+        }
+        
         return cell
     }
     
