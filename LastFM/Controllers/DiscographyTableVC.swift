@@ -76,12 +76,10 @@ class DiscographyTableVC: UITableViewController {
         cell.setAlbum(album: discography[indexFirst], .left)
         
         if indexSecond < discography.count {
-            let albumRight = discography[indexSecond]
-            cell.labelRight?.text = albumRight.name
-            cell.imageViewRight?.image = UIImage(named: albumRight.cover )
+            cell.setAlbum(album: discography[indexSecond], .right)
+            
         } else {
-            cell.labelRight?.text = ""
-            cell.imageViewRight?.image = nil
+            cell.setAlbum(album: nil, .right)
         }
         
         return cell

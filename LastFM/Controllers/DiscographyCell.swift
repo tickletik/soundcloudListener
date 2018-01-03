@@ -64,7 +64,7 @@ class DiscographyCell: UITableViewCell {
     @IBAction func tappedLeft() {
         print("tapped Left")
         
-        if let album = albums[.left] {
+        if let album = albums[.left], album != nil {
             print("album: \(String(describing: album))")
         } else {
             print("album is not set")
@@ -72,8 +72,13 @@ class DiscographyCell: UITableViewCell {
     }
 
     @IBAction func tappedRight() {
-        print("tapped right")
-        if let album = albums[.right] {
+        tapAction(.right)
+    }
+    
+    func tapAction(_ leftright: AlbumEnum) {
+        print("tapped \(leftright)")
+        
+        if let album = albums[leftright], album != nil {
             print("album: \(String(describing: album))")
         } else {
             print("album is not set")
