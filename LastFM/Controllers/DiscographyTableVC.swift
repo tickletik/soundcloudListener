@@ -18,7 +18,7 @@ class DiscographyTableVC: UITableViewController {
     
         
         // set the channel to the default value
-        channel = Channel.channelData[0]
+        channel = Channel.channelData[1]
         
         if let channel = channel {
             discography = channel.discography
@@ -38,8 +38,19 @@ class DiscographyTableVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return discography.count / 2
+        
+        /*
+            there are two albums on each row
+            dividing an int by 2, the return value is floored
+            check if the number is odd, then add a row
+        */
+        
+        var rows = discography.count / 2
+        
+        if discography.count % 2 == 1 {
+            rows += 1
+        }
+        return rows
     }
 
     

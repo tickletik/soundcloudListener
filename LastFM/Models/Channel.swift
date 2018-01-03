@@ -38,7 +38,14 @@ class Channel {
             
             channelArray.append(kansas)
             
-            channelArray.append(Channel(artist: "Red Hot Chili Peppers", listeners: 2005, coverURL: "red hot chili peppers.jpg"))
+            let redhotchili = Channel(artist: "Red Hot Chili Peppers", listeners: 2005, coverURL: "red hot chili peppers.jpg")
+            redhotchili.discography.append(Album(name: "The Red Hot Chili Peppers", year: "1984", cover: "RHCP.1984.jpg"))
+            redhotchili.discography.append(Album(name: "Freaky Styley", year: "1985", cover: "RHCP.Freakystyleyalbumcover.jpg"))
+            redhotchili.discography.append(Album(name: "The Uplift Mofo Party Plan", year: "1987", cover: "RHCP.UpliftMofoCover.jpg"))
+            redhotchili.discography.append(Album(name: "Mother's Milk", year: "1989", cover: "RHCP.Mother'sMilkAlbumcover.jpg"))
+            redhotchili.discography.append(Album(name: "Blood Sugar Sex Magic", year: "1991", cover: "RHCP.BSSM.jpg"))
+            channelArray.append(redhotchili)
+            
             
             channelArray.append(Channel(artist: "Boston", listeners: 6032, coverURL: "Boston - Dont Look Back.jpg"))
             
