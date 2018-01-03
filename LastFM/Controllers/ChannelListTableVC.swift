@@ -10,12 +10,12 @@ import UIKit
 
 class ChannelListTableVC: UITableViewController {
 
-    var channels: [Channel] = []
+    var artists: [Artist] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        channels = Channel.channelData
+        artists = Artist.defaultData
     }
     
     // MARK: - Table view data source
@@ -25,19 +25,19 @@ class ChannelListTableVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return channels.count
+        return artists.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChannelCell", for: indexPath)
 
-        let channel = channels[indexPath.row]
+        let channel = artists[indexPath.row]
         
         cell.imageView?.image = UIImage(named: channel.coverURL)
         
         
-        cell.textLabel?.text = channel.artist
+        cell.textLabel?.text = channel.name
         cell.detailTextLabel?.text = "(\(channel.listeners) listeners)"
 
         return cell

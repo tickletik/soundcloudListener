@@ -11,14 +11,14 @@ import UIKit
 class DiscographyTableVC: UITableViewController {
 
     var discography: [Album] = []
-    var channel: Channel?
+    var channel: Artist?
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
         
         // set the channel to the default value
-        channel = Channel.channelData[1]
+        channel = Artist.defaultData[1]
         
         if let channel = channel {
             discography = channel.discography

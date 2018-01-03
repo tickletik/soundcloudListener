@@ -8,7 +8,13 @@
 
 import Foundation
 
-class Album {
+class Album: CustomStringConvertible {
+    var description: String {
+        get {
+            return "Album \(name)"
+        }
+    }
+    
     var name: String
     var year: String
     var cover: String

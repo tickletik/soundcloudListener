@@ -8,28 +8,28 @@
 
 import Foundation
 
-class Channel {
-    var artist: String
+class Artist {
+    var name: String
     var listeners: Int
     var coverURL:String
     
     var discography: [Album]
 
     
-    init(artist: String, listeners: Int, coverURL: String) {
-        self.artist = artist
+    init(name: String, listeners: Int, coverURL: String) {
+        self.name = name
         self.listeners = listeners
         self.coverURL = coverURL
         
         self.discography = []
     }
     
-    static var channelData:[Channel] {
+    static var defaultData:[Artist] {
         get {
-            var channelArray = [Channel]()
+            var channelArray = [Artist]()
             
             
-            let kansas = Channel(artist: "Kansas", listeners: 324, coverURL: "Kansas - Point of Know Return.jpg" )
+            let kansas = Artist(name: "Kansas", listeners: 324, coverURL: "Kansas - Point of Know Return.jpg" )
             
             kansas.discography.append(Album(name: "Point of Know Return", year: "1977", cover: "Kansas - Point of Know Return.jpg"))
             kansas.discography.append(Album(name: "Song for America", year: "1975", cover: "Kansas_-_Song_for_America.jpg"))
@@ -38,7 +38,7 @@ class Channel {
             
             channelArray.append(kansas)
             
-            let redhotchili = Channel(artist: "Red Hot Chili Peppers", listeners: 2005, coverURL: "red hot chili peppers.jpg")
+            let redhotchili = Artist(name: "Red Hot Chili Peppers", listeners: 2005, coverURL: "red hot chili peppers.jpg")
             redhotchili.discography.append(Album(name: "The Red Hot Chili Peppers", year: "1984", cover: "RHCP.1984.jpg"))
             redhotchili.discography.append(Album(name: "Freaky Styley", year: "1985", cover: "RHCP.Freakystyleyalbumcover.jpg"))
             redhotchili.discography.append(Album(name: "The Uplift Mofo Party Plan", year: "1987", cover: "RHCP.UpliftMofoCover.jpg"))
@@ -47,13 +47,13 @@ class Channel {
             channelArray.append(redhotchili)
             
             
-            channelArray.append(Channel(artist: "Boston", listeners: 6032, coverURL: "Boston - Dont Look Back.jpg"))
+            channelArray.append(Artist(name: "Boston", listeners: 6032, coverURL: "Boston - Dont Look Back.jpg"))
             
-            channelArray.append(Channel(artist: "Madness", listeners: 230, coverURL: "Madness - One Step Beyond.jpg"))
+            channelArray.append(Artist(name: "Madness", listeners: 230, coverURL: "Madness - One Step Beyond.jpg"))
             
-            channelArray.append(Channel(artist: "Kook and the Gang", listeners: 783, coverURL: "Kool_and_the_Gang1969.jpg"))
+            channelArray.append(Artist(name: "Kook and the Gang", listeners: 783, coverURL: "Kool_and_the_Gang1969.jpg"))
             
-            channelArray.append(Channel(artist: "The Specials", listeners: 67, coverURL: "Specials uk front.jpg"))
+            channelArray.append(Artist(name: "The Specials", listeners: 67, coverURL: "Specials uk front.jpg"))
             
             return channelArray
         }
