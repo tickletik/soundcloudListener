@@ -62,13 +62,7 @@ class DiscographyCell: UITableViewCell {
     }
     
     @IBAction func tappedLeft() {
-        print("tapped Left")
-        
-        if let album = albums[.left], album != nil {
-            print("album: \(String(describing: album))")
-        } else {
-            print("album is not set")
-        }
+        tapAction(.left)
     }
 
     @IBAction func tappedRight() {
