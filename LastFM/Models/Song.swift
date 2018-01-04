@@ -12,7 +12,11 @@ class Song: CustomStringConvertible {
     
     var description: String {
         get {
-            return "\(track). \(name) (\(time))"
+            let min = Int(time) / 60
+            let sec = Int(time) % 60
+            
+            
+            return "\(track). \(name) (\(min):\(sec))"
         }
     }
     
