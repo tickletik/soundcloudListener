@@ -43,7 +43,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="1Uz-oK-rDw" kind="show" id="nJ5-AY-IQU"/>
+                                    <segue destination="1Uz-oK-rDw" kind="show" identifier="DiscographySegue" id="nJ5-AY-IQU"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
