@@ -85,6 +85,49 @@ class Artist {
             
             channelArray.append(kansas)
             
+            
+            let kool = Artist(name: "Kook and the Gang", listeners: 783, coverURL: "Kool_and_the_Gang1969.jpg")
+            
+            let kool_kool = Album(artist: kool, name: "Koll and the Gang", year: "1969", cover: "Kool_and_the_Gang1969.jpg")
+            let kool_message = Album(artist: kool, name: "Music Is the Message", year: "1972", cover: "Music_Is_The_Message1972.jpg")
+            let kool_times = Album(artist: kool, name: "Good Times", year: "1972", cover: "Good_Times1972.jpg")
+            
+            kool_kool.tracks.append(Song(album: kool_kool, track: 1, name: "Kool & The Gang", time: seconds(2, 54)))
+            kool_kool.tracks.append(Song(album: kool_kool, track: 2, name: "Breeze & Soul", time: seconds(5, 29)))
+            kool_kool.tracks.append(Song(album: kool_kool, track: 3, name: "Chocolate Buttermilk", time: seconds(2, 14)))
+            kool_kool.tracks.append(Song(album: kool_kool, track: 4, name: "Sea of Tranquility", time: seconds(3, 34)))
+            kool_kool.tracks.append(Song(album: kool_kool, track: 5, name: "Give it Up", time: seconds(3, 40)))
+            kool_kool.tracks.append(Song(album: kool_kool, track: 6, name: "Since I Lost My Baby", time: seconds(2, 8)))
+            kool_kool.tracks.append(Song(album: kool_kool, track: 7, name: "Kool's Back Again", time: seconds(2, 48)))
+            kool_kool.tracks.append(Song(album: kool_kool, track: 8, name: "The Gang's Back Again", time: seconds(2, 46)))
+            kool_kool.tracks.append(Song(album: kool_kool, track: 9, name: "Raw Hamburger", time: seconds(3, 36)))
+            kool_kool.tracks.append(Song(album: kool_kool, track: 10, name: "Let The Music Take Your Mind", time: seconds(2, 58)))
+            
+            kool_message.tracks.append(Song(album: kool_message, track: 1, name: "Music Is the Message", time: seconds(5, 18)))
+            kool_message.tracks.append(Song(album: kool_message, track: 2, name: "Electric Frog (Part 1)", time: seconds(3, 43)))
+            kool_message.tracks.append(Song(album: kool_message, track: 3, name: "Electric Frog (Part 2)", time: seconds(3, 2)))
+            kool_message.tracks.append(Song(album: kool_message, track: 4, name: "Soul Vibrations", time: seconds(4, 39)))
+            
+            kool_message.tracks.append(Song(album: kool_message, track: 5, name: "Love the Life You Live (part 1)", time: seconds(3, 1)))
+            kool_message.tracks.append(Song(album: kool_message, track: 6, name: "Love the Life You Live (part 2)", time: seconds(2, 48)))
+            kool_message.tracks.append(Song(album: kool_message, track: 7, name: "Stop, Look, Listen (To Your Heart)", time: seconds(3, 26)))
+            kool_message.tracks.append(Song(album: kool_message, track: 8, name: "Blowin' with the Wind", time: seconds(2, 31)))
+            kool_message.tracks.append(Song(album: kool_message, track: 9, name: "Funky Granny", time: seconds(5, 55)))
+            
+            kool_times.tracks.append(Song(album: kool_times, track: 1, name: "Good Times", time: seconds(4, 16)))
+            kool_times.tracks.append(Song(album: kool_times, track: 2, name: "Country Junky", time: seconds(2, 55)))
+            kool_times.tracks.append(Song(album: kool_times, track: 3, name: "Wild Is Love", time: seconds(3, 24)))
+            kool_times.tracks.append(Song(album: kool_times, track: 4, name: "North, East, South, West", time: seconds(3, 38)))
+            kool_times.tracks.append(Song(album: kool_times, track: 5, name: "Making Merry Music", time: seconds(3, 4)))
+            kool_times.tracks.append(Song(album: kool_times, track: 6, name: "I Remember John W. Coltrane", time: seconds(4, 2)))
+            kool_times.tracks.append(Song(album: kool_times, track: 7, name: "Rated X", time: seconds(4, 2)))
+            kool_times.tracks.append(Song(album: kool_times, track: 8, name: "Father, Father", time: seconds(5, 37)))
+            
+            kool.discography.append(kool_kool)
+            kool.discography.append(kool_message)
+            kool.discography.append(kool_times)
+            channelArray.append(kool)
+            
             let redhotchili = Artist(name: "Red Hot Chili Peppers", listeners: 2005, coverURL: "red hot chili peppers.jpg")
             redhotchili.discography.append(Album(artist: redhotchili, name: "The Red Hot Chili Peppers", year: "1984", cover: "RHCP.1984.jpg"))
             redhotchili.discography.append(Album(artist: redhotchili, name: "Freaky Styley", year: "1985", cover: "RHCP.Freakystyleyalbumcover.jpg"))
@@ -94,11 +137,11 @@ class Artist {
             channelArray.append(redhotchili)
             
             
+            
+            
             channelArray.append(Artist(name: "Boston", listeners: 6032, coverURL: "Boston - Dont Look Back.jpg"))
             
             channelArray.append(Artist(name: "Madness", listeners: 230, coverURL: "Madness - One Step Beyond.jpg"))
-            
-            channelArray.append(Artist(name: "Kook and the Gang", listeners: 783, coverURL: "Kool_and_the_Gang1969.jpg"))
             
             channelArray.append(Artist(name: "The Specials", listeners: 67, coverURL: "Specials uk front.jpg"))
             

@@ -20,16 +20,17 @@ class DiscographyTableVC: UITableViewController, DiscographyDelegate {
     
 
     var discography: [Album] = []
-    var channel: Artist?
+    var artist: Artist?
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        // set the channel to the default value
-        channel = Artist.defaultData[1]
         
-        if let channel = channel {
-            discography = channel.discography
+        if let artist = artist {
+            discography = artist.discography
+        } else {
+            artist = Artist.defaultData[4]
+            discography = artist!.discography
         }
     }
 
