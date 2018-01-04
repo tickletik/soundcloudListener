@@ -16,12 +16,15 @@ class DiscographyTableVC: UITableViewController, DiscographyDelegate {
     
     func showAlbum(album: Album) {
         print("show album \(album)")
+        selectedAlbum = album
         performSegue(withIdentifier: "AlbumSegue", sender: nil)
     }
     
 
     var discography: [Album] = []
     var artist: Artist?
+    
+    var selectedAlbum: Album?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -133,14 +136,16 @@ class DiscographyTableVC: UITableViewController, DiscographyDelegate {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "AlbumSegue", let album = selectedAlbum {
+            let destination = segue.destination as? AlbumViewController
+            destination?.album = album
+        }
     }
-    */
-
 }

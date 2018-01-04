@@ -12,16 +12,22 @@ class AlbumViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet weak var tableView: UITableView!
     
-    var album = Artist.defaultData[0].discography[0]
+    var album: Album?
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return album.tracks.count
+        if let album = album {
+            return album.tracks.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrackCell", for: indexPath)
         
-        cell.textLabel?.text = album.tracks[indexPath.row].description
+        if let album = album {
+            cell.textLabel?.text = album.tracks[indexPath.row].description
+        }
         
         return cell
     }
@@ -29,15 +35,7 @@ class AlbumViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
     /*
     // MARK: - Navigation
