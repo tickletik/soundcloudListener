@@ -11,6 +11,7 @@ import UIKit
 class ChannelListTableVC: UITableViewController {
 
     var artists: [Artist] = []
+    var selectedArtist: Artist?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,17 +33,16 @@ class ChannelListTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChannelCell", for: indexPath)
 
-        let channel = artists[indexPath.row]
+        let artist = artists[indexPath.row]
         
-        cell.imageView?.image = UIImage(named: channel.coverURL)
+        cell.imageView?.image = UIImage(named: artist.coverURL)
         
         
-        cell.textLabel?.text = channel.name
-        cell.detailTextLabel?.text = "(\(channel.listeners) listeners)"
+        cell.textLabel?.text = artist.name
+        cell.detailTextLabel?.text = "(\(artist.listeners) listeners)"
 
         return cell
     }
-    
 
     
     // MARK: - Navigation
@@ -52,7 +52,14 @@ class ChannelListTableVC: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        let discography = segue.destination as? DiscographyTableVC
+        if segue.identifier == "DiscographySegue" {
+            let discographyTableVC = segue.destination as? DiscographyTableVC
+            
+            let indexPath = tableView.indexPathForSelectedRow!
+            let artist = artists[indexPath.row]
+            
+            discographyTableVC?.artist = artist
+        }
     }
 
 }
