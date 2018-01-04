@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lYa-e1-iDf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6dR-Ow-sAf">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -67,10 +67,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Boston - Dont Look Back" translatesAutoresizingMaskIntoConstraints="NO" id="tA6-oM-Pbl">
-                                <rect key="frame" x="16" y="36" width="343" height="300"/>
+                                <rect key="frame" x="16" y="80" width="343" height="300"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="an8-Sz-DiY">
-                                <rect key="frame" x="16" y="352" width="343" height="299"/>
+                                <rect key="frame" x="16" y="396" width="343" height="255"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrackCell" textLabel="9or-E6-Dfj" style="IBUITableViewCellStyleDefault" id="sJu-9x-tHN">
@@ -115,7 +115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="52t-Kw-Xfh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="95" y="947"/>
+            <point key="canvasLocation" x="1774" y="159"/>
         </scene>
         <!--Discography TableVC-->
         <scene sceneID="4Qw-Qc-pQN">
@@ -194,6 +194,9 @@
                             <outlet property="delegate" destination="1Uz-oK-rDw" id="z0g-Zq-yMa"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="lYa-e1-iDf" kind="show" identifier="AlbumSegue" id="uyf-wE-gOg"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3hw-b4-8RO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

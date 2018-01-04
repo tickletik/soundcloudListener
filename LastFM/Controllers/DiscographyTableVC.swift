@@ -8,7 +8,16 @@
 
 import UIKit
 
-class DiscographyTableVC: UITableViewController {
+protocol DiscographyDelegate {
+    func showAlbum(album: Album)
+}
+
+class DiscographyTableVC: UITableViewController, DiscographyDelegate {
+    
+    func showAlbum(album: Album) {
+        print("show album \(album)")
+    }
+    
 
     var discography: [Album] = []
     var channel: Artist?
@@ -16,7 +25,6 @@ class DiscographyTableVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        
         // set the channel to the default value
         channel = Artist.defaultData[1]
         
@@ -63,7 +71,6 @@ class DiscographyTableVC: UITableViewController {
         return rows
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:DiscographyCell = tableView.dequeueReusableCell(withIdentifier: "DiscographyCell", for: indexPath) as! DiscographyCell
 
@@ -72,7 +79,7 @@ class DiscographyTableVC: UITableViewController {
         let indexFirst = rownum * 2
         let indexSecond = indexFirst + 1
         
-        
+        cell.delegate = self
         cell.setAlbum(album: discography[indexFirst], .left)
         
         if indexSecond < discography.count {

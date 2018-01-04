@@ -21,6 +21,8 @@ class DiscographyCell: UITableViewCell {
     
     var albums: [AlbumEnum: Album?] = [AlbumEnum: Album?]()
     
+    var delegate: DiscographyDelegate?
+    
     let leftGestureTap = UITapGestureRecognizer()
     let rightGestureTap = UITapGestureRecognizer()
     
@@ -59,6 +61,7 @@ class DiscographyCell: UITableViewCell {
         
         firstStack.addGestureRecognizer(leftGestureTap)
         secondStack.addGestureRecognizer(rightGestureTap)
+ 
     }
     
     @IBAction func tappedLeft() {
@@ -73,7 +76,10 @@ class DiscographyCell: UITableViewCell {
         print("tapped \(leftright)")
         
         if let album = albums[leftright], album != nil {
-            print("album: \(String(describing: album))")
+            // print("album: \(String(describing: album))")
+            
+            delegate?.showAlbum(album: album!)
+            
         } else {
             print("album is not set")
         }
