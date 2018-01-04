@@ -16,6 +16,7 @@ class DiscographyTableVC: UITableViewController, DiscographyDelegate {
     
     func showAlbum(album: Album) {
         print("show album \(album)")
+        performSegue(withIdentifier: "AlbumSegue", sender: nil)
     }
     
 
