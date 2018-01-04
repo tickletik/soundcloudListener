@@ -110,6 +110,7 @@
                         <viewLayoutGuide key="safeArea" id="iQL-X5-z6p"/>
                     </view>
                     <connections>
+                        <outlet property="imageView" destination="tA6-oM-Pbl" id="ks7-OF-AaZ"/>
                         <outlet property="tableView" destination="an8-Sz-DiY" id="M0B-Ya-Nor"/>
                     </connections>
                 </viewController>

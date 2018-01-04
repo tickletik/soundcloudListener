@@ -11,6 +11,7 @@ import UIKit
 class AlbumViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var imageView: UIImageView!
     
     var album: Album?
     
@@ -35,6 +36,10 @@ class AlbumViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let album = album {
+            imageView?.image = UIImage(named: album.cover)
+        }
     }
 
     /*
