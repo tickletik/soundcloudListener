@@ -1,7 +1,7 @@
 import UIKit
 import PlaygroundSupport
 
-PlaygroundPage.current.needsIndefiniteExecution = true
+//PlaygroundPage.current.needsIndefiniteExecution = true
 
 struct LastFMImage: Codable, CustomStringConvertible {
     
@@ -258,10 +258,7 @@ let queryArtists: [String: String] = [
 
 
 /*
-
-
 let baseURL = URL(string: "http://ws.audioscrobbler.com/2.0/?")
-
 let searchURL = baseURL?.withQueries(query)!
 print(searchURL)
 */
@@ -277,6 +274,10 @@ fetchArtists(matching: queryArtists) { (fetchedInfo) in
                     print(artist.name)
                     for album in albums {
                         print("-- \(album.name)")
+                        if let url = album.getLastFMImage(size: .small)?.url {
+                            print("-- \(url)")
+                        }
+                        print()
                     }
                 }
             }
