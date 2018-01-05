@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Song: CustomStringConvertible {
+class Track: CustomStringConvertible {
     
     var description: String {
         get {
@@ -16,18 +16,18 @@ class Song: CustomStringConvertible {
             let sec = Int(time) % 60
             
             
-            return "\(track). \(name) (\(min):\(sec))"
+            return "\(number). \(name) (\(min):\(sec))"
         }
     }
     
     var album: Album
-    var track: Int
+    var number: Int
     var name: String
     var time: TimeInterval
     
-    init(album: Album, track: Int, name: String, time: TimeInterval ) {
+    init(album: Album, number: Int, name: String, time: TimeInterval ) {
         self.album = album
-        self.track = track
+        self.number = number
         self.name = name
         self.time = time
     }

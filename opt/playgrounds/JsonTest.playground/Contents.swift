@@ -7,7 +7,7 @@ struct LastFMImage: Codable, CustomStringConvertible {
     
     var description: String {
         get {
-            return "ArtistImage(size: \(size), url: \(url))"
+            return "LastFMImage(size: \(size), url: \(url))"
         }
     }
     

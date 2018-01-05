@@ -18,7 +18,7 @@
 		E377534F1FF94E3D00EB8E31 /* DiscographyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E377534E1FF94E3D00EB8E31 /* DiscographyCell.swift */; };
 		E3C89F261FFD09F9008FD109 /* ChannelListTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C89F251FFD09F9008FD109 /* ChannelListTableVC.swift */; };
 		E3D27CDF1FFD546C001ADC6E /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D27CDE1FFD546C001ADC6E /* AlbumViewController.swift */; };
-		E3D27CE11FFD5733001ADC6E /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D27CE01FFD5733001ADC6E /* Song.swift */; };
+		E3D27CE11FFD5733001ADC6E /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D27CE01FFD5733001ADC6E /* Track.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +35,7 @@
 		E377534E1FF94E3D00EB8E31 /* DiscographyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscographyCell.swift; sourceTree = "<group>"; };
 		E3C89F251FFD09F9008FD109 /* ChannelListTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListTableVC.swift; sourceTree = "<group>"; };
 		E3D27CDE1FFD546C001ADC6E /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
-		E3D27CE01FFD5733001ADC6E /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		E3D27CE01FFD5733001ADC6E /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				E37753481FF90AA200EB8E31 /* Artist.swift */,
-				E3D27CE01FFD5733001ADC6E /* Song.swift */,
+				E3D27CE01FFD5733001ADC6E /* Track.swift */,
 				E377534A1FF91F1500EB8E31 /* Album.swift */,
 			);
 			path = Models;
@@ -186,7 +186,7 @@
 				E377534F1FF94E3D00EB8E31 /* DiscographyCell.swift in Sources */,
 				E37753491FF90AA200EB8E31 /* Artist.swift in Sources */,
 				E3D27CDF1FFD546C001ADC6E /* AlbumViewController.swift in Sources */,
-				E3D27CE11FFD5733001ADC6E /* Song.swift in Sources */,
+				E3D27CE11FFD5733001ADC6E /* Track.swift in Sources */,
 				E377532E1FF908DE00EB8E31 /* AppDelegate.swift in Sources */,
 				E3C89F261FFD09F9008FD109 /* ChannelListTableVC.swift in Sources */,
 				E377534B1FF91F1500EB8E31 /* Album.swift in Sources */,
