@@ -253,14 +253,14 @@ let searchURL = baseURL?.withQueries(query)!
 print(searchURL)
 */
 
-fetchArtists(country: .usa) { (fetchedInfo) in
+fetchArtists(country: .usa) { (artistsInfo) in
     
-    if let artists = fetchedInfo {
+    if let artists = artistsInfo {
         for artist in artists {
             
             // artist.debug()
-            fetchAlbums(artist: artist) { (artist, albums) in
-                if let albums = albums {
+            fetchAlbums(artist: artist) { (artist, albumsInfo) in
+                if let albums = albumsInfo {
                     print(artist.name)
                     for album in albums {
                         album.debug("--")
