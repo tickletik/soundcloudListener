@@ -55,12 +55,11 @@ class LastFMBase: Codable {
         images = try values.decode([LastFMImage].self, forKey: .images)
     }
     
-    
-    func debug() {
-        print(name)
+    func debug(_ param: String = "") {
+        print(param + name)
         
         if let url = getLastFMImage(size: .small)?.url {
-            print(url)
+            print("\(param)\(url)")
         }
         print()
     }
@@ -178,10 +177,23 @@ extension URL {
     }
 }
 
-func fetchArtists(matching query: [String: String], completion: @escaping ([Artist]?) -> Void) {
-    
-    let baseURL = URL(string: "http://ws.audioscrobbler.com/2.0/?")
+enum CountryCodes: String {
+    case uk = "united kingdom"
+    case sn = "spain"
+    case il = "israel"
+    case usa = "united states"
+}
 
+func fetchArtists(country: CountryCodes, completion: @escaping ([Artist]?) -> Void) {
+    
+    let query: [String: String] = [
+        "method": "geo.gettopartists",
+        "country": country.rawValue,
+        "api_key": "9c0cbfb76c4b7e2b3e4e559d8d0ff13c",
+        "format": "json",
+        "limit" : "2"
+    ]
+    let baseURL = URL(string: "http://ws.audioscrobbler.com/2.0/?")
     let searchURL = baseURL?.withQueries(query)!
 
     let task = URLSession.shared.dataTask(with: searchURL!) { (data, response, error) in
@@ -235,22 +247,13 @@ func fetchAlbums(artist: Artist, completion: @escaping (Artist, [Album]?) -> Voi
 
 
 
-let queryArtists: [String: String] = [
-    "method": "geo.gettopartists",
-    "country": "united kingdom",
-    "api_key": "9c0cbfb76c4b7e2b3e4e559d8d0ff13c",
-    "format": "json",
-    "limit" : "2"
-]
-
-
 /*
 let baseURL = URL(string: "http://ws.audioscrobbler.com/2.0/?")
 let searchURL = baseURL?.withQueries(query)!
 print(searchURL)
 */
 
-fetchArtists(matching: queryArtists) { (fetchedInfo) in
+fetchArtists(country: .usa) { (fetchedInfo) in
     
     if let artists = fetchedInfo {
         for artist in artists {
@@ -260,11 +263,7 @@ fetchArtists(matching: queryArtists) { (fetchedInfo) in
                 if let albums = albums {
                     print(artist.name)
                     for album in albums {
-                        print("-- \(album.name)")
-                        if let url = album.getLastFMImage(size: .small)?.url {
-                            print("-- \(url)")
-                        }
-                        print()
+                        album.debug("--")
                     }
                 }
             }
