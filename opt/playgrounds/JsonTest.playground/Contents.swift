@@ -28,20 +28,12 @@ struct LastFMImage: Codable, CustomStringConvertible {
     }
 }
 
-struct Artist: Codable, CustomStringConvertible {
-    var description: String {
-        get {
-            return "Artist(name: \(name), listeners: \(listeners), images: \(images))"
-        }
-    }
+class Test: Codable {
+    var name: String
+    var images: [LastFMImage]
     
-    let name: String
-    let listeners: Int
-    let images: [LastFMImage]
-    
-    enum CodingKeys: String, CodingKey {
+    enum TestKeys: String, CodingKey {
         case name
-        case listeners
         case images = "image"
     }
     
@@ -56,15 +48,35 @@ struct Artist: Codable, CustomStringConvertible {
         return nil
     }
     
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: TestKeys.self)
         
         name = try values.decode(String.self, forKey: .name)
+        images = try values.decode([LastFMImage].self, forKey: .images)
+    }
+    
+}
+
+class Artist: Test, CustomStringConvertible {
+    var description: String {
+        get {
+            return "Artist(name: \(name), listeners: \(listeners), images: \(images))"
+        }
+    }
+    
+    var listeners: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case listeners
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
         
         let listeners = try values.decode(String.self, forKey: .listeners)
         self.listeners = Int(listeners)!
         
-        self.images = try values.decode([LastFMImage].self, forKey: .images)
+        try super.init(from: decoder)
     }
     
     func debug() {
