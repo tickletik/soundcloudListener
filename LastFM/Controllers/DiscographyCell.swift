@@ -73,7 +73,7 @@ class DiscographyCell: UITableViewCell {
     }
     
     func tapAction(_ leftright: AlbumEnum) {
-        print("tapped \(leftright)")
+        // print("tapped \(leftright)")
         
         if let album = albums[leftright], album != nil {
             // print("album: \(String(describing: album))")

@@ -25,7 +25,7 @@ class Artist {
     }
     
     
-    static func seconds(_ min: Int, _ sec: Int) -> Double {
+    static func seconds(_ min: Int = 0, _ sec: Int) -> Double {
         return Double(min * 60 + sec)
     }
     
@@ -136,13 +136,8 @@ class Artist {
             redhotchili.discography.append(Album(artist: redhotchili, name: "Blood Sugar Sex Magic", year: "1991", cover: "RHCP.BSSM.jpg"))
             channelArray.append(redhotchili)
             
-            
-            
-            
             channelArray.append(Artist(name: "Boston", listeners: 6032, coverURL: "Boston - Dont Look Back.jpg"))
-            
             channelArray.append(Artist(name: "Madness", listeners: 230, coverURL: "Madness - One Step Beyond.jpg"))
-            
             channelArray.append(Artist(name: "The Specials", listeners: 67, coverURL: "Specials uk front.jpg"))
             
             return channelArray
