@@ -66,10 +66,10 @@ class LastFMBase: Codable {
     
 }
 
-class Artist: LastFMBase, CustomStringConvertible {
+class LastFMArtist: LastFMBase, CustomStringConvertible {
     var description: String {
         get {
-            return "Artist(name: \(name), listeners: \(listeners), images: \(images))"
+            return "LastFMArtist(name: \(name), listeners: \(listeners), images: \(images))"
         }
     }
     
@@ -104,28 +104,28 @@ struct TopArtist: Codable, CustomStringConvertible {
         }
     }
     
-    let artists: [Artist]
+    let artists: [LastFMArtist]
     
     enum CodingKeys: String, CodingKey {
         case artists = "artist"
     }
     
-    enum TopKeys: String, CodingKey {
-        case topartists
+    enum ContainerKeys: String, CodingKey {
+        case container = "topartists"
     }
     
     init(from decoder: Decoder) throws {
-        let topcontainer = try decoder.container(keyedBy: TopKeys.self)
+        let topcontainer = try decoder.container(keyedBy: ContainerKeys.self)
         
-        let values = try topcontainer.nestedContainer(keyedBy: CodingKeys.self, forKey: .topartists)
-        artists = try values.decode([Artist].self, forKey: .artists)
+        let values = try topcontainer.nestedContainer(keyedBy: CodingKeys.self, forKey: .container)
+        artists = try values.decode([LastFMArtist].self, forKey: .artists)
     }
 }
 
-class Album: LastFMBase, CustomStringConvertible {
+class LastFMDiscography: LastFMBase, CustomStringConvertible {
     var description: String {
         get {
-            return "Album(name: \(name), images: \(images))"
+            return "LastFMDiscography(name: \(name), images: \(images))"
         }
     }
 }
@@ -145,21 +145,21 @@ struct TopAlbums: Codable, CustomStringConvertible {
         }
     }
     
-    let albums: [Album]
+    let albums: [LastFMDiscography]
     
     enum CodingKeys: String, CodingKey {
         case albums = "album"
     }
     
-    enum TopKeys: String, CodingKey {
-        case topalbums
+    enum ContainerKeys: String, CodingKey {
+        case container = "topalbums"
     }
     
     init(from decoder: Decoder) throws {
-        let topcontainer = try decoder.container(keyedBy: TopKeys.self)
+        let topcontainer = try decoder.container(keyedBy: ContainerKeys.self)
         
-        let values = try topcontainer.nestedContainer(keyedBy: CodingKeys.self, forKey: .topalbums)
-        albums = try values.decode([Album].self, forKey: .albums)
+        let values = try topcontainer.nestedContainer(keyedBy: CodingKeys.self, forKey: .container)
+        albums = try values.decode([LastFMDiscography].self, forKey: .albums)
     }
 }
 
@@ -184,7 +184,7 @@ enum CountryCodes: String {
     case usa = "united states"
 }
 
-func fetchArtists(country: CountryCodes, completion: @escaping ([Artist]?) -> Void) {
+func fetchArtists(country: CountryCodes, completion: @escaping ([LastFMArtist]?) -> Void) {
     
     let query: [String: String] = [
         "method": "geo.gettopartists",
@@ -214,7 +214,7 @@ func fetchArtists(country: CountryCodes, completion: @escaping ([Artist]?) -> Vo
     task.resume()
 }
 
-func fetchAlbums(artist: Artist, completion: @escaping (Artist, [Album]?) -> Void) {
+func fetchDiscography(artist: LastFMArtist, completion: @escaping (LastFMArtist, [LastFMDiscography]?) -> Void) {
     
     let query: [String:String] = [
         "method": "artist.gettopalbums",
@@ -259,10 +259,10 @@ fetchArtists(country: .usa) { (artistsInfo) in
         for artist in artists {
             
             // artist.debug()
-            fetchAlbums(artist: artist) { (artist, albumsInfo) in
-                if let albums = albumsInfo {
+            fetchDiscography(artist: artist) { (artist, discographyInfo) in
+                if let discography = discographyInfo {
                     print(artist.name)
-                    for album in albums {
+                    for album in discography {
                         album.debug("--")
                     }
                 }
