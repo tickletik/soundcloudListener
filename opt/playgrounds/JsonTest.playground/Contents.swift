@@ -1,7 +1,7 @@
 import UIKit
 import PlaygroundSupport
 
-//PlaygroundPage.current.needsIndefiniteExecution = true
+PlaygroundPage.current.needsIndefiniteExecution = true
 
 struct LastFMImage: Codable, CustomStringConvertible {
     
@@ -55,6 +55,16 @@ class Test: Codable {
         images = try values.decode([LastFMImage].self, forKey: .images)
     }
     
+    
+    func debug() {
+        print(name)
+        
+        if let url = getLastFMImage(size: .small)?.url {
+            print(url)
+        }
+        print()
+    }
+    
 }
 
 class Artist: Test, CustomStringConvertible {
@@ -79,15 +89,6 @@ class Artist: Test, CustomStringConvertible {
         try super.init(from: decoder)
     }
     
-    func debug() {
-        print(name)
-        print(listeners)
-        
-        if let url = getLastFMImage(size: .small)?.url {
-            print(url)
-        }
-        print()
-    }
 }
 
 struct TopArtist: Codable, CustomStringConvertible {
@@ -122,37 +123,11 @@ struct TopArtist: Codable, CustomStringConvertible {
     }
 }
 
-struct Album: Codable, CustomStringConvertible {
+class Album: Test, CustomStringConvertible {
     var description: String {
         get {
             return "Album(name: \(name), images: \(images))"
         }
-    }
-    
-    let name: String
-    let images: [LastFMImage]
-    
-    enum CodingKeys: String, CodingKey {
-        case name
-        case images = "image"
-    }
-    
-    
-    func getLastFMImage(size: LastFMImage.Sizes) -> LastFMImage? {
-        
-        for image in images {
-            if image.size == size.rawValue {
-                return image
-            }
-        }
-        
-        return nil
-    }
-    
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        name = try values.decode(String.self, forKey: .name)
-        self.images = try values.decode([LastFMImage].self, forKey: .images)
     }
 }
 
