@@ -28,11 +28,11 @@ struct LastFMImage: Codable, CustomStringConvertible {
     }
 }
 
-class Test: Codable {
+class LastFMBase: Codable {
     var name: String
     var images: [LastFMImage]
     
-    enum TestKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case name
         case images = "image"
     }
@@ -49,7 +49,7 @@ class Test: Codable {
     }
     
     required init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: TestKeys.self)
+        let values = try decoder.container(keyedBy: CodingKeys.self)
         
         name = try values.decode(String.self, forKey: .name)
         images = try values.decode([LastFMImage].self, forKey: .images)
@@ -67,7 +67,7 @@ class Test: Codable {
     
 }
 
-class Artist: Test, CustomStringConvertible {
+class Artist: LastFMBase, CustomStringConvertible {
     var description: String {
         get {
             return "Artist(name: \(name), listeners: \(listeners), images: \(images))"
@@ -123,7 +123,7 @@ struct TopArtist: Codable, CustomStringConvertible {
     }
 }
 
-class Album: Test, CustomStringConvertible {
+class Album: LastFMBase, CustomStringConvertible {
     var description: String {
         get {
             return "Album(name: \(name), images: \(images))"
