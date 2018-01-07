@@ -110,8 +110,6 @@ struct LastFMTrack: Codable, CustomStringConvertible {
     let seconds: Int
     let number: Int
     
-    
-    
     enum CodingKeys: String, CodingKey {
         case name
         case seconds = "duration"
@@ -131,44 +129,32 @@ struct LastFMTrack: Codable, CustomStringConvertible {
         let rankContainer = try values.nestedContainer(keyedBy: AttrKeys.self, forKey: .number )
         let rank = try rankContainer.decode(String.self, forKey: .rank)
         
-        if let number = Int(rank) {
-            self.number = number
-        } else {
-            self.number = 0
-        }
+        number = Int(rank)!
     }
     
     
 }
 
-struct LastFMAlbum: Codable, CustomStringConvertible {
+class LastFMAlbum: LastFMBase, CustomStringConvertible {
     var description: String {
         get {
             return "LastFMAlbum()"
         }
     }
     
-    //var tracks: [LastFMTrack]
-    let name: String
     let tracks: [LastFMTrack]
-    let images: [LastFMImage]
     
     enum CodingKeys: String, CodingKey {
-        //case tracks
-        case name
         case tracks
-        case images = "image"
     }
     
-    init(from decoder: Decoder) throws {
+    required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        
-        name = try values.decode(String.self, forKey: .name)
         
         let tracktest = try values.decode([String: [LastFMTrack]].self, forKey: .tracks)
         tracks = tracktest["track"]!
         
-        images = try values.decode([LastFMImage].self, forKey: .images)
+        try super.init(from: decoder)
     }
    
 }
@@ -388,6 +374,7 @@ func discographyHandler (artist: LastFMArtist, discographyInfo : [LastFMDiscogra
                 if let album = album{
                     print("\n-artist: \(artist.name)")
                     print("-album: \(album.name)"  )
+                    print("-cover: \(album.getLastFMImage(size: .medium)!.url)")
                     
                     for track in album.tracks {
                         print("-- \(track)")
