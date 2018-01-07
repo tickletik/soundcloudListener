@@ -1,7 +1,7 @@
 import UIKit
 import PlaygroundSupport
 
-PlaygroundPage.current.needsIndefiniteExecution = true
+//PlaygroundPage.current.needsIndefiniteExecution = true
 
 struct LastFMImage: Codable, CustomStringConvertible {
     
@@ -246,29 +246,41 @@ func fetchDiscography(artist: LastFMArtist, completion: @escaping (LastFMArtist,
 }
 
 
-
 /*
+let query: [String:String] = [
+    "method": "album.getinfo",
+    "artist": artist.name,
+    "album" : album.name
+    "api_key": "9c0cbfb76c4b7e2b3e4e559d8d0ff13c",
+    "format": "json",
+    "limit" : "2"
+]
+
 let baseURL = URL(string: "http://ws.audioscrobbler.com/2.0/?")
 let searchURL = baseURL?.withQueries(query)!
 print(searchURL)
 */
 
-fetchArtists(country: .usa) { (artistsInfo) in
-    
+let discographyHandler = { (artist: LastFMArtist, discographyInfo : [LastFMDiscography]?) -> Void in
+    if let discography = discographyInfo {
+        print(artist.name)
+        for album in discography {
+            album.debug("--")
+        }
+    }
+}
+
+let artistHandler = { (artistsInfo: [LastFMArtist]?) -> Void in
     if let artists = artistsInfo {
         for artist in artists {
             
             // artist.debug()
-            fetchDiscography(artist: artist) { (artist, discographyInfo) in
-                if let discography = discographyInfo {
-                    print(artist.name)
-                    for album in discography {
-                        album.debug("--")
-                    }
-                }
-            }
+            fetchDiscography(artist: artist, completion: discographyHandler)
+            
         }
     }
 }
+
+fetchArtists(country: .usa, completion: artistHandler)
 
 
