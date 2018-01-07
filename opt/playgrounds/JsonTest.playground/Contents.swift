@@ -90,10 +90,10 @@ class LastFMArtist: LastFMBase, CustomStringConvertible {
     
 }
 
-class LastFMTrack: CustomStringConvertible {
+struct LastFMTrack: Codable, CustomStringConvertible {
     var description: String {
         get {
-            return "LastFMTrack()"
+            return "LastFMTrack(name: \(name), duration: \(duration), number: \(number))"
         }
     }
     
@@ -106,21 +106,38 @@ class LastFMTrack: CustomStringConvertible {
         }
     }
     
-    var name: String
-    var seconds: Int
+    let name: String
+    let seconds: Int
+    let number: Int
     
-    required init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        
-        name = try values.decode(String.self, forKey: .name)
-        seconds = Int(try values.decode(String.self, forKey: .seconds))!
-    }
     
     
     enum CodingKeys: String, CodingKey {
         case name
         case seconds = "duration"
+        case number = "@attr"
     }
+    
+    enum AttrKeys: String, CodingKey {
+        case rank
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        name = try values.decode(String.self, forKey: .name)
+        seconds = Int(try values.decode(String.self, forKey: .seconds))!
+        
+        let rankContainer = try values.nestedContainer(keyedBy: AttrKeys.self, forKey: .number )
+        let rank = try rankContainer.decode(String.self, forKey: .rank)
+        
+        if let number = Int(rank) {
+            self.number = number
+        } else {
+            self.number = 0
+        }
+    }
+    
     
 }
 
@@ -133,12 +150,22 @@ struct LastFMAlbum: Codable, CustomStringConvertible {
     
     //var tracks: [LastFMTrack]
     let name: String
+    let tracks: [LastFMTrack]
     
     enum CodingKeys: String, CodingKey {
         //case tracks
         case name
+        case tracks
     }
     
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        name = try values.decode(String.self, forKey: .name)
+        
+        let tracktest = try values.decode([String: [LastFMTrack]].self, forKey: .tracks)
+        tracks = tracktest["track"]!
+    }
    
 }
 
@@ -350,11 +377,19 @@ print(searchURL)
 func discographyHandler (artist: LastFMArtist, discographyInfo : [LastFMDiscography]?) -> Void {
     if let discography = discographyInfo {
         
-        print("in discography handler")
-        print(artist.name)
+        print("artist: \(artist.name)")
         for album in discography {
             fetchAlbum(artist: artist, discography: album) { (artist, album) in
-                print("yo")
+                
+                if let album = album{
+                    print("\n-artist: \(artist.name)")
+                    print("-album: \(album.name)"  )
+                    
+                    for track in album.tracks {
+                        print("-- \(track)")
+                    }
+                    //print(album.tracks)
+                }
                 
             }
         }
