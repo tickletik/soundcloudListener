@@ -1,7 +1,7 @@
 import UIKit
 import PlaygroundSupport
 
-//PlaygroundPage.current.needsIndefiniteExecution = true
+PlaygroundPage.current.needsIndefiniteExecution = true
 
 struct LastFMImage: Codable, CustomStringConvertible {
     
@@ -124,16 +124,22 @@ class LastFMTrack: CustomStringConvertible {
     
 }
 
-class LastFMAlbum: LastFMBase, CustomStringConvertible {
+struct LastFMAlbum: Codable, CustomStringConvertible {
     var description: String {
         get {
             return "LastFMAlbum()"
         }
     }
+    
+    //var tracks: [LastFMTrack]
+    let name: String
+    
     enum CodingKeys: String, CodingKey {
-        case artist
-        case listeners
+        //case tracks
+        case name
     }
+    
+   
 }
 
 struct TopArtist: Codable, CustomStringConvertible {
@@ -291,7 +297,7 @@ func fetchDiscography(artist: LastFMArtist, completion: @escaping (LastFMArtist,
     task.resume()
 }
 
-func fetchAlbum(artist: LastFMArtist, discography: LastFMBase,completion: @escaping (LastFMArtist, [LastFMDiscography]?) -> Void) {
+func fetchAlbum(artist: LastFMArtist, discography: LastFMBase, completion: @escaping (LastFMArtist, LastFMAlbum?) -> Void) {
     
     let query: [String:String] = [
         "method": "album.getinfo",
@@ -304,22 +310,23 @@ func fetchAlbum(artist: LastFMArtist, discography: LastFMBase,completion: @escap
     
     let baseURL = URL(string: "http://ws.audioscrobbler.com/2.0/?")
     let searchURL = baseURL?.withQueries(query)!
-    
+    //print(searchURL)
     let task = URLSession.shared.dataTask(with: searchURL!) { (data, response, error) in
         
         
-        //let jsonDecoder = JSONDecoder()
+        let jsonDecoder = JSONDecoder()
         
         if let data = data,
-            let rawJSON = try? JSONSerialization.jsonObject(with: data) {
+            let _ = try? JSONSerialization.jsonObject(with: data) {
             
-            print(rawJSON)
+            // print(rawJSON)
+            //print("got album data for \(artist.name) \(discography.name)")
             
-            /*
-            if let lastfmResponse = try? jsonDecoder.decode(TopAlbums.self, from:data) {
-                completion(artist, lastfmResponse.albums)
+            
+            if let lastfmResponse = try? jsonDecoder.decode([String:LastFMAlbum].self, from:data) {
+                completion(artist, lastfmResponse["album"])
             }
-            */
+            
         }
     }
     
@@ -342,14 +349,20 @@ print(searchURL)
 
 func discographyHandler (artist: LastFMArtist, discographyInfo : [LastFMDiscography]?) -> Void {
     if let discography = discographyInfo {
+        
+        print("in discography handler")
         print(artist.name)
         for album in discography {
-            //fetchAlbum(artist: artist, discography: album) { }
+            fetchAlbum(artist: artist, discography: album) { (artist, album) in
+                print("yo")
+                
+            }
         }
     }
 }
 
 func artistHandler (artistsInfo: [LastFMArtist]?) -> Void {
+    print("in artist handler")
     if let artists = artistsInfo {
         for artist in artists {
             
