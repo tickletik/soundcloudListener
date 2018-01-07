@@ -151,11 +151,13 @@ struct LastFMAlbum: Codable, CustomStringConvertible {
     //var tracks: [LastFMTrack]
     let name: String
     let tracks: [LastFMTrack]
+    let images: [LastFMImage]
     
     enum CodingKeys: String, CodingKey {
         //case tracks
         case name
         case tracks
+        case images = "image"
     }
     
     init(from decoder: Decoder) throws {
@@ -165,6 +167,8 @@ struct LastFMAlbum: Codable, CustomStringConvertible {
         
         let tracktest = try values.decode([String: [LastFMTrack]].self, forKey: .tracks)
         tracks = tracktest["track"]!
+        
+        images = try values.decode([LastFMImage].self, forKey: .images)
     }
    
 }
