@@ -8,20 +8,32 @@
 
 import UIKit
 
-class ChannelListTableVC: UITableViewController {
 
+class ChannelListTableVC: UITableViewController, ArtistDelegate {
+    
     var artists: [Artist] = []
+    
+    var tableRows: [(Artist, UIImage)] = []
+    
     var selectedArtist: Artist?
+    
+    func setArtists(artists: [Artist]) {
+        self.artists = artists
+        
+        for artist in artists {
+            tableRows.append((artist, UIImage(named: artist.cover.value() as! String )! ))
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        let fetch = FetchController()
-        fetch.fetchArtists(country: .usa, completion: fetch.artistHandler)
+        //let fetch = FetchController()
+        //fetch.fetchArtists(country: .usa, limit: 2, delegate: self, completion: fetch.artistHandler)
         
         
-        artists = Artist.defaultData
+        setArtists(artists: Artist.defaultData)
     }
     
     // MARK: - Table view data source
@@ -31,18 +43,16 @@ class ChannelListTableVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return artists.count
+        return tableRows.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChannelCell", for: indexPath)
 
-        let artist = artists[indexPath.row]
+        let (artist, image) = tableRows[indexPath.row]
         
-        cell.imageView?.image = UIImage(named: artist.coverURL)
-        
-        
+        cell.imageView?.image = image
         cell.textLabel?.text = artist.name
         cell.detailTextLabel?.text = "(\(artist.listeners) listeners)"
 

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension URL {
     func withQueries(_ queries: [String: String]) -> URL? {
@@ -29,6 +30,12 @@ enum CountryCodes: String {
     case usa = "united states"
 }
 
+
+protocol ArtistDelegate {
+    func setArtists(artists: [Artist])
+}
+
+
 class FetchController {
 
     var baseURL: URL?
@@ -43,7 +50,7 @@ class FetchController {
         
     }
     
-    func fetchArtists(country: CountryCodes, limit:Int = 2, completion: @escaping ([LastFMArtist]?) -> Void) {
+    func fetchArtists(country: CountryCodes, limit:Int = 2, delegate: ArtistDelegate, completion: @escaping (ArtistDelegate, [LastFMArtist]?) -> Void) {
         
         let query: [String: String] = [
             "method": "geo.gettopartists",
@@ -65,7 +72,7 @@ class FetchController {
                 // print(rawJSON)
                 
                 if let topartists = try? jsonDecoder.decode(TopArtist.self, from:data) {
-                    completion(topartists.artists)
+                    completion(delegate, topartists.artists)
                 }
             }
         }
@@ -73,15 +80,44 @@ class FetchController {
         task.resume()
     }
 
-    func artistHandler (artistsInfo: [LastFMArtist]?) -> Void {
+    func fetchImage(imageURL: URL, artist: Artist) {
+        
+        let task = URLSession.shared.dataTask(with: imageURL) { (data, response, error) in
+            
+            if let e = error {
+                print("Error downloading imageURL: \(e)")
+            } else {
+                if let res = response as? HTTPURLResponse {
+                    print("dowloaded imageURL with response code \(res.statusCode)")
+                    
+                    if let imageData = data {
+                        let image = UIImage(data: imageData)
+                        //artist.cover = image
+                    }
+                }
+            }
+        }
+        
+        task.resume()
+    }
+    
+    
+    func artistHandler (delegate: ArtistDelegate, fetchedArtists: [LastFMArtist]?) -> Void {
         print("in artist handler")
-        if let artists = artistsInfo {
-            for artist in artists {
+        if let fetchedArtists = fetchedArtists {
+            
+            var artists: [Artist] = []
+            
+            for fArtist in fetchedArtists {
                 
-                artist.debug()
+                //let artist: Artist = Artist(name: fArtist.name, listeners: fArtist.listeners)
+                //artists.append(artist)
+                fArtist.debug()
                 //fetchDiscography(artist: artist, completion: discographyHandler)
                 
             }
+            
+            delegate.setArtists(artists: artists)
         }
     }
     
