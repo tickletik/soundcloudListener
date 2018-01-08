@@ -31,10 +31,10 @@ class DiscographyTableVC: UITableViewController, DiscographyDelegate {
     
         
         if let artist = artist {
-            discography = artist.discography
+            discography = artist.discography!
         } else {
             artist = Artist.defaultData[2]
-            discography = artist!.discography
+            discography = artist!.discography!
         }
     }
 

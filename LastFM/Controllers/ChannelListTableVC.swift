@@ -16,6 +16,11 @@ class ChannelListTableVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        let fetch = FetchController()
+        fetch.fetchArtists(country: .usa, completion: fetch.artistHandler)
+        
+        
         artists = Artist.defaultData
     }
     

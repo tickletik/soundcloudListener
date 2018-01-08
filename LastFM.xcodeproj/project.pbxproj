@@ -19,6 +19,7 @@
 		E39D7ECE200405F3008A6F09 /* LastFMImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D7ECD200405F3008A6F09 /* LastFMImage.swift */; };
 		E39D7ED020040688008A6F09 /* LastFMBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D7ECF20040688008A6F09 /* LastFMBase.swift */; };
 		E39D7ED2200406BE008A6F09 /* LastFMArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D7ED1200406BE008A6F09 /* LastFMArtist.swift */; };
+		E39D7ED42004087E008A6F09 /* FetchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D7ED32004087E008A6F09 /* FetchController.swift */; };
 		E3C89F261FFD09F9008FD109 /* ChannelListTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C89F251FFD09F9008FD109 /* ChannelListTableVC.swift */; };
 		E3D27CDF1FFD546C001ADC6E /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D27CDE1FFD546C001ADC6E /* AlbumViewController.swift */; };
 		E3D27CE11FFD5733001ADC6E /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D27CE01FFD5733001ADC6E /* Track.swift */; };
@@ -39,6 +40,7 @@
 		E39D7ECD200405F3008A6F09 /* LastFMImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastFMImage.swift; sourceTree = "<group>"; };
 		E39D7ECF20040688008A6F09 /* LastFMBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastFMBase.swift; sourceTree = "<group>"; };
 		E39D7ED1200406BE008A6F09 /* LastFMArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastFMArtist.swift; sourceTree = "<group>"; };
+		E39D7ED32004087E008A6F09 /* FetchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchController.swift; sourceTree = "<group>"; };
 		E3C89F251FFD09F9008FD109 /* ChannelListTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListTableVC.swift; sourceTree = "<group>"; };
 		E3D27CDE1FFD546C001ADC6E /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		E3D27CE01FFD5733001ADC6E /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				E3C89F251FFD09F9008FD109 /* ChannelListTableVC.swift */,
+				E39D7ED32004087E008A6F09 /* FetchController.swift */,
 				E377534C1FF9248900EB8E31 /* DiscographyTableVC.swift */,
 				E377534E1FF94E3D00EB8E31 /* DiscographyCell.swift */,
 				E3D27CDE1FFD546C001ADC6E /* AlbumViewController.swift */,
@@ -194,6 +197,7 @@
 				E39D7ED020040688008A6F09 /* LastFMBase.swift in Sources */,
 				E377534D1FF9248900EB8E31 /* DiscographyTableVC.swift in Sources */,
 				E377534F1FF94E3D00EB8E31 /* DiscographyCell.swift in Sources */,
+				E39D7ED42004087E008A6F09 /* FetchController.swift in Sources */,
 				E37753491FF90AA200EB8E31 /* Artist.swift in Sources */,
 				E3D27CDF1FFD546C001ADC6E /* AlbumViewController.swift in Sources */,
 				E3D27CE11FFD5733001ADC6E /* Track.swift in Sources */,
