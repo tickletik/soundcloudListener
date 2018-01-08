@@ -13,7 +13,7 @@ class Artist {
     var listeners: Int
     var coverURL:String
     
-    var discography: [Album]
+    var discography: [Album]?
 
     
     init(name: String, listeners: Int, coverURL: String) {
@@ -28,6 +28,10 @@ class Artist {
     static func seconds(_ min: Int = 0, _ sec: Int) -> Double {
         return Double(min * 60 + sec)
     }
+}
+
+
+extension Artist {
     
     static var defaultData:[Artist] {
         get {
@@ -78,10 +82,10 @@ class Artist {
             kansas_overture.tracks.append(Track(album: kansas_overture, number: 8, name: "Magnum Opus", time: seconds(8,25) ))
             
             
-            kansas.discography.append(kansas_kansas)
-            kansas.discography.append(kansas_america)
-            kansas.discography.append(kansas_know)
-            kansas.discography.append(kansas_overture)
+            kansas.discography?.append(kansas_kansas)
+            kansas.discography?.append(kansas_america)
+            kansas.discography?.append(kansas_know)
+            kansas.discography?.append(kansas_overture)
             
             channelArray.append(kansas)
             
@@ -123,17 +127,17 @@ class Artist {
             kool_times.tracks.append(Track(album: kool_times, number: 7, name: "Rated X", time: seconds(4, 2)))
             kool_times.tracks.append(Track(album: kool_times, number: 8, name: "Father, Father", time: seconds(5, 37)))
             
-            kool.discography.append(kool_kool)
-            kool.discography.append(kool_message)
-            kool.discography.append(kool_times)
+            kool.discography?.append(kool_kool)
+            kool.discography?.append(kool_message)
+            kool.discography?.append(kool_times)
             channelArray.append(kool)
             
             let redhotchili = Artist(name: "Red Hot Chili Peppers", listeners: 2005, coverURL: "red hot chili peppers.jpg")
-            redhotchili.discography.append(Album(artist: redhotchili, name: "The Red Hot Chili Peppers", year: "1984", cover: "RHCP.1984.jpg"))
-            redhotchili.discography.append(Album(artist: redhotchili, name: "Freaky Styley", year: "1985", cover: "RHCP.Freakystyleyalbumcover.jpg"))
-            redhotchili.discography.append(Album(artist: redhotchili, name: "The Uplift Mofo Party Plan", year: "1987", cover: "RHCP.UpliftMofoCover.jpg"))
-            redhotchili.discography.append(Album(artist: redhotchili, name: "Mother's Milk", year: "1989", cover: "RHCP.Mother'sMilkAlbumcover.jpg"))
-            redhotchili.discography.append(Album(artist: redhotchili, name: "Blood Sugar Sex Magic", year: "1991", cover: "RHCP.BSSM.jpg"))
+            redhotchili.discography?.append(Album(artist: redhotchili, name: "The Red Hot Chili Peppers", year: "1984", cover: "RHCP.1984.jpg"))
+            redhotchili.discography?.append(Album(artist: redhotchili, name: "Freaky Styley", year: "1985", cover: "RHCP.Freakystyleyalbumcover.jpg"))
+            redhotchili.discography?.append(Album(artist: redhotchili, name: "The Uplift Mofo Party Plan", year: "1987", cover: "RHCP.UpliftMofoCover.jpg"))
+            redhotchili.discography?.append(Album(artist: redhotchili, name: "Mother's Milk", year: "1989", cover: "RHCP.Mother'sMilkAlbumcover.jpg"))
+            redhotchili.discography?.append(Album(artist: redhotchili, name: "Blood Sugar Sex Magic", year: "1991", cover: "RHCP.BSSM.jpg"))
             channelArray.append(redhotchili)
             
             channelArray.append(Artist(name: "Boston", listeners: 6032, coverURL: "Boston - Dont Look Back.jpg"))

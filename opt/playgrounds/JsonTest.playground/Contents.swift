@@ -1,7 +1,7 @@
 import UIKit
 import PlaygroundSupport
 
-PlaygroundPage.current.needsIndefiniteExecution = true
+//PlaygroundPage.current.needsIndefiniteExecution = true
 
 struct LastFMImage: Codable, CustomStringConvertible {
     
