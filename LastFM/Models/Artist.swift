@@ -9,18 +9,33 @@
 import Foundation
 
 class Artist {
+    
+    enum Cover {
+        case named(String)
+        case url(URL)
+        
+        func value() -> Any {
+            switch self {
+            case .named(let value):
+                return value
+            case .url(let value):
+                return value
+            }
+        }
+    }
+    
     var name: String
     var listeners: Int
-    var coverURL:String
+    var cover: Cover
     
     var discography: [Album]?
 
     
-    init(name: String, listeners: Int, coverURL: String) {
+    init(name: String, listeners: Int, cover: Cover) {
         self.name = name
         self.listeners = listeners
-        self.coverURL = coverURL
         
+        self.cover = cover
         self.discography = []
     }
     
@@ -37,8 +52,7 @@ extension Artist {
         get {
             var channelArray = [Artist]()
             
-            
-            let kansas = Artist(name: "Kansas", listeners: 324, coverURL: "Kansas - Point of Know Return.jpg" )
+            let kansas = Artist(name: "Kansas", listeners: 324, cover: .named("Kansas - Point of Know Return.jpg") )
             
             let kansas_know =  Album(artist: kansas, name: "Point of Know Return", year: "1977", cover: "Kansas - Point of Know Return.jpg")
             let kansas_america = Album(artist: kansas, name: "Song for America", year: "1975", cover: "Kansas_-_Song_for_America.jpg")
@@ -90,7 +104,7 @@ extension Artist {
             channelArray.append(kansas)
             
             
-            let kool = Artist(name: "Kook and the Gang", listeners: 783, coverURL: "Kool_and_the_Gang1969.jpg")
+            let kool = Artist(name: "Kook and the Gang", listeners: 783, cover: .named("Kool_and_the_Gang1969.jpg"))
             
             let kool_kool = Album(artist: kool, name: "Koll and the Gang", year: "1969", cover: "Kool_and_the_Gang1969.jpg")
             let kool_message = Album(artist: kool, name: "Music Is the Message", year: "1972", cover: "Music_Is_The_Message1972.jpg")
@@ -132,7 +146,8 @@ extension Artist {
             kool.discography?.append(kool_times)
             channelArray.append(kool)
             
-            let redhotchili = Artist(name: "Red Hot Chili Peppers", listeners: 2005, coverURL: "red hot chili peppers.jpg")
+            let redhotchili = Artist(name: "Red Hot Chili Peppers", listeners: 2005, cover: .named("red hot chili peppers.jpg"))
+            
             redhotchili.discography?.append(Album(artist: redhotchili, name: "The Red Hot Chili Peppers", year: "1984", cover: "RHCP.1984.jpg"))
             redhotchili.discography?.append(Album(artist: redhotchili, name: "Freaky Styley", year: "1985", cover: "RHCP.Freakystyleyalbumcover.jpg"))
             redhotchili.discography?.append(Album(artist: redhotchili, name: "The Uplift Mofo Party Plan", year: "1987", cover: "RHCP.UpliftMofoCover.jpg"))
@@ -140,9 +155,9 @@ extension Artist {
             redhotchili.discography?.append(Album(artist: redhotchili, name: "Blood Sugar Sex Magic", year: "1991", cover: "RHCP.BSSM.jpg"))
             channelArray.append(redhotchili)
             
-            channelArray.append(Artist(name: "Boston", listeners: 6032, coverURL: "Boston - Dont Look Back.jpg"))
-            channelArray.append(Artist(name: "Madness", listeners: 230, coverURL: "Madness - One Step Beyond.jpg"))
-            channelArray.append(Artist(name: "The Specials", listeners: 67, coverURL: "Specials uk front.jpg"))
+            channelArray.append(Artist(name: "Boston", listeners: 6032, cover: .named( "Boston - Dont Look Back.jpg") ))
+            channelArray.append(Artist(name: "Madness", listeners: 230, cover: .named("Madness - One Step Beyond.jpg")))
+            channelArray.append(Artist(name: "The Specials", listeners: 67, cover: .named("Specials uk front.jpg")))
             
             return channelArray
         }
