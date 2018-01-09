@@ -37,7 +37,7 @@ class LastFMAlbum: LastFMBase, CustomStringConvertible {
         }
     }
     
-    let tracks: [LastFMTrack]
+    let tracks: [Track]
     
     enum CodingKeys: String, CodingKey {
         case tracks
@@ -46,7 +46,7 @@ class LastFMAlbum: LastFMBase, CustomStringConvertible {
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
-        let tracktest = try values.decode([String: [LastFMTrack]].self, forKey: .tracks)
+        let tracktest = try values.decode([String: [Track]].self, forKey: .tracks)
         tracks = tracktest["track"]!
         
         try super.init(from: decoder)

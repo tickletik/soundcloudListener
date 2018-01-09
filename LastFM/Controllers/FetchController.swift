@@ -167,11 +167,8 @@ class FetchController {
                         
                         artist.discography.append(album)
                         
-                        for fmTrack in fmAlbum.tracks {
-                        
-                            let track = Track(album: album, number: fmTrack.number, name: fmTrack.name, duration: Double(fmTrack.seconds))
+                        for track in fmAlbum.tracks {
                             album.tracks.append(track)
-                            print("-- \(fmTrack)")
                         }
                     }
                 }

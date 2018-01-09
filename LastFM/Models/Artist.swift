@@ -61,8 +61,8 @@ class Artist: Decodable, CustomStringConvertible {
         self.cover = .url(url!)
     }
     
-    static func seconds(_ min: Int = 0, _ sec: Int) -> Double {
-        return Double(min * 60 + sec)
+    static func seconds(_ min: Int = 0, _ sec: Int) -> Int {
+        return min * 60 + sec
     }
 }
 
