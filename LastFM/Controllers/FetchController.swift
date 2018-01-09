@@ -50,7 +50,7 @@ class FetchController {
         
     }
     
-    func fetchArtists(country: CountryCodes, limit:Int = 2, delegate: ArtistDelegate, completion: @escaping (ArtistDelegate, [LastFMArtist]?) -> Void) {
+    func fetchArtists(country: CountryCodes, limit:Int = 2, delegate: ArtistDelegate, completion: @escaping (ArtistDelegate, [Artist]?) -> Void) {
         
         let query: [String: String] = [
             "method": "geo.gettopartists",
@@ -132,19 +132,19 @@ class FetchController {
     }
     
     
-    func artistHandler (delegate: ArtistDelegate, fetchedArtists: [LastFMArtist]?) -> Void {
+    func artistHandler (delegate: ArtistDelegate, fetchedArtists: [Artist]?) -> Void {
         
         if let fetchedArtists = fetchedArtists {
             
             var artists: [Artist] = []
             
-            for fArtist in fetchedArtists {
+            for artist in fetchedArtists {
                 
-                let url:URL = (fArtist.getLastFMImage(size: .medium)?.url)!
-                let artist = Artist(name: fArtist.name, listeners: fArtist.listeners, cover: .url(url))
+                //let url:URL = (fArtist.getLastFMImage(size: .medium)?.url)!
+                //let artist = Artist(name: fArtist.name, listeners: fArtist.listeners, cover: .url(url))
                 artists.append(artist)
                 
-                fArtist.debug()
+                print("artist: \(artist)")
                 fetchDiscography(artist: artist, completion: discographyHandler)
             }
             

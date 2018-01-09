@@ -8,7 +8,13 @@
 
 import Foundation
 
-class Artist {
+class Artist: Decodable, CustomStringConvertible {
+    
+    var description: String {
+        get {
+            return "Artist(name: \(name), listeners: \(listeners), cover: \(cover))"
+        }
+    }
     
     enum Cover {
         case named(String)
@@ -30,6 +36,11 @@ class Artist {
     
     var discography: [Album]?
 
+    private enum CodingKeys: String, CodingKey {
+        case name
+        case cover = "image"
+        case listeners
+    }
     
     init(name: String, listeners: Int, cover: Cover) {
         self.name = name
@@ -39,9 +50,36 @@ class Artist {
         self.discography = []
     }
     
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.name = try values.decode(String.self, forKey: .name)
+
+        let listeners = try values.decode(String.self, forKey: .listeners)
+        self.listeners = Int(listeners)!
+
+        let images = try values.decode([LastFMImage].self, forKey: .cover)
+        let image = Artist.getLastFMImage(images: images, size: .medium)
+        let url = (image?.url)!
+        
+        self.cover = .url(url)
+    }
     
     static func seconds(_ min: Int = 0, _ sec: Int) -> Double {
         return Double(min * 60 + sec)
+    }
+}
+
+extension Artist {
+    static func getLastFMImage(images: [LastFMImage], size: LastFMImage.Sizes) -> LastFMImage? {
+        
+        for image in images {
+            if image.size == size.rawValue {
+                return image
+            }
+        }
+        
+        return nil
     }
 }
 
