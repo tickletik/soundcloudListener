@@ -109,7 +109,7 @@ class FetchController {
         task.resume()
     }
 
-    func fetchAlbum(artist: Artist, limit: Int = 2, discography: LastFMBase, completion: @escaping (Artist, LastFMAlbum?) -> Void) {
+    func fetchAlbum(artist: Artist, limit: Int = 2, discography: LastFMDiscography, completion: @escaping (Artist, Album?) -> Void) {
         
         let query: [String:String] = [
             "method": "album.getinfo",
@@ -129,7 +129,7 @@ class FetchController {
             if let data = data,
                 let _ = try? JSONSerialization.jsonObject(with: data) {
                 
-                if let lastfmResponse = try? jsonDecoder.decode([String:LastFMAlbum].self, from:data) {
+                if let lastfmResponse = try? jsonDecoder.decode([String:Album].self, from:data) {
                     completion(artist, lastfmResponse["album"])
                 }
             }
@@ -157,19 +157,10 @@ class FetchController {
         if let discography = discographyInfo {
             
             for fmAlbum in discography {
-                fetchAlbum(artist: artist, discography: fmAlbum) { (artist, fmAlbum) in
+                fetchAlbum(artist: artist, discography: fmAlbum) { (artist, album) in
                     
-                    if let fmAlbum = fmAlbum {
-
-                        let urlcover = fmAlbum.getLastFMImage(size: .mega)!.url
-                        
-                        let album = Album(artist: artist, name: fmAlbum.name, cover: .url(urlcover))
-                        
+                    if let album = album {
                         artist.discography.append(album)
-                        
-                        for track in fmAlbum.tracks {
-                            album.tracks.append(track)
-                        }
                     }
                 }
                 

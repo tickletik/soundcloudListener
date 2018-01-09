@@ -43,7 +43,7 @@ class Album: Decodable, CustomStringConvertible {
         tracks = tracktest["track"]!
 
         images = try values.decode([LastFMImage].self, forKey: .cover)
-        let url = Artist.extractImageURL(images: images!, size: .medium)
+        let url = Artist.extractImageURL(images: images!, size: .mega)
         self.cover = .url(url!)
     }
 }
