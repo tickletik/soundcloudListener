@@ -131,8 +131,6 @@ struct LastFMTrack: Codable, CustomStringConvertible {
         
         number = Int(rank)!
     }
-    
-    
 }
 
 class LastFMAlbum: LastFMBase, CustomStringConvertible {

@@ -8,25 +8,25 @@
 
 import Foundation
 
+enum Cover {
+    case named(String)
+    case url(URL)
+    
+    func value() -> Any {
+        switch self {
+        case .named(let value):
+            return value
+        case .url(let value):
+            return value
+        }
+    }
+}
+
 class Artist: Decodable, CustomStringConvertible {
     
     var description: String {
         get {
-            return "Artist(name: \(name), listeners: \(listeners), cover: \(cover))"
-        }
-    }
-    
-    enum Cover {
-        case named(String)
-        case url(URL)
-        
-        func value() -> Any {
-            switch self {
-            case .named(let value):
-                return value
-            case .url(let value):
-                return value
-            }
+            return "Artist(name: \(name), listeners: \(listeners), cover: \(String(describing: cover)))"
         }
     }
     
@@ -35,6 +35,7 @@ class Artist: Decodable, CustomStringConvertible {
     var cover: Cover
     
     var discography: [Album]?
+    var images: [LastFMImage]?
 
     private enum CodingKeys: String, CodingKey {
         case name
@@ -54,15 +55,11 @@ class Artist: Decodable, CustomStringConvertible {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
         self.name = try values.decode(String.self, forKey: .name)
+        self.listeners = Int(try values.decode(String.self, forKey: .listeners))!
 
-        let listeners = try values.decode(String.self, forKey: .listeners)
-        self.listeners = Int(listeners)!
-
-        let images = try values.decode([LastFMImage].self, forKey: .cover)
-        let image = Artist.getLastFMImage(images: images, size: .medium)
-        let url = (image?.url)!
-        
-        self.cover = .url(url)
+        images = try values.decode([LastFMImage].self, forKey: .cover)
+        let url = Artist.extractImageURL(images: images!, size: .medium)
+        self.cover = .url(url!)
     }
     
     static func seconds(_ min: Int = 0, _ sec: Int) -> Double {
@@ -71,11 +68,11 @@ class Artist: Decodable, CustomStringConvertible {
 }
 
 extension Artist {
-    static func getLastFMImage(images: [LastFMImage], size: LastFMImage.Sizes) -> LastFMImage? {
+    static func extractImageURL(images: [LastFMImage], size: LastFMImage.Sizes) -> URL? {
         
         for image in images {
             if image.size == size.rawValue {
-                return image
+                return image.url
             }
         }
         

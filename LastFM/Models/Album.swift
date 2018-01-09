@@ -31,3 +31,27 @@ class Album: CustomStringConvertible {
         self.tracks = []
     }
 }
+
+class LastFMAlbum: LastFMBase, CustomStringConvertible {
+    var description: String {
+        get {
+            return "LastFMAlbum()"
+        }
+    }
+    
+    let tracks: [LastFMTrack]
+    
+    enum CodingKeys: String, CodingKey {
+        case tracks
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        let tracktest = try values.decode([String: [LastFMTrack]].self, forKey: .tracks)
+        tracks = tracktest["track"]!
+        
+        try super.init(from: decoder)
+    }
+    
+}
