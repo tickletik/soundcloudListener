@@ -1,7 +1,7 @@
 import UIKit
 import PlaygroundSupport
 
-//PlaygroundPage.current.needsIndefiniteExecution = true
+PlaygroundPage.current.needsIndefiniteExecution = true
 
 struct LastFMImage: Codable, CustomStringConvertible {
     
@@ -325,7 +325,8 @@ func fetchAlbum(artist: LastFMArtist, discography: LastFMBase, completion: @esca
     
     let baseURL = URL(string: "http://ws.audioscrobbler.com/2.0/?")
     let searchURL = baseURL?.withQueries(query)!
-    //print(searchURL)
+    print("searchURL: \(searchURL)")
+    
     let task = URLSession.shared.dataTask(with: searchURL!) { (data, response, error) in
         
         
