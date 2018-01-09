@@ -18,11 +18,11 @@ class Album: CustomStringConvertible {
     var artist: Artist
     var name: String
     var year: String
-    var cover: String
+    var cover: Cover 
     
     var tracks: [Track]
     
-    init(artist: Artist, name: String, year: String, cover: String) {
+    init(artist: Artist, name: String, year: String, cover: Cover) {
         self.artist = artist
         self.name = name
         self.year = year

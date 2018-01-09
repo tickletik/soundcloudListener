@@ -40,7 +40,17 @@ class DiscographyCell: UITableViewCell {
         
         if let album = album {
             label?.text = album.name
-            imageView?.image = UIImage(named: album.cover )
+            
+            var image: UIImage?
+            switch album.cover {
+            case .named(let named):
+                image = UIImage(named: named)!
+            case .url(let url):
+                image = UIImage(url: url)!
+            }
+            
+            imageView?.image = image
+            
         } else {
             label?.text = ""
             imageView?.image = nil

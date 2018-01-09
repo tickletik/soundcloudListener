@@ -29,7 +29,6 @@ class DiscographyTableVC: UITableViewController, DiscographyDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        
         if let artist = artist {
             discography = artist.discography!
         } else {

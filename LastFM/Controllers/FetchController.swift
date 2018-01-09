@@ -110,27 +110,36 @@ class FetchController {
         task.resume()
     }
 
-    func fetchImage(imageURL: URL, artist: Artist) {
+    func fetchAlbum(artist: Artist, limit: Int = 2, discography: LastFMBase, completion: @escaping (Artist, LastFMAlbum?) -> Void) {
         
-        let task = URLSession.shared.dataTask(with: imageURL) { (data, response, error) in
+        let query: [String:String] = [
+            "method": "album.getinfo",
+            "artist": artist.name,
+            "album" : discography.name,
+            "api_key": api_key,
+            "format": format,
+            "limit" : "\(limit)"
+        ]
+        
+        let searchURL = baseURL?.withQueries(query)!
+        
+        let task = URLSession.shared.dataTask(with: searchURL!) { (data, response, error) in
             
-            if let e = error {
-                print("Error downloading imageURL: \(e)")
-            } else {
-                if let res = response as? HTTPURLResponse {
-                    print("dowloaded imageURL with response code \(res.statusCode)")
-                    
-                    if let imageData = data {
-                        let _ = UIImage(data: imageData)
-                        //artist.cover = image
-                    }
+            let jsonDecoder = JSONDecoder()
+            
+            if let data = data,
+                let _ = try? JSONSerialization.jsonObject(with: data) {
+                
+                // print(rawJSON)
+                //print("got album data for \(artist.name) \(discography.name)")
+                
+                if let lastfmResponse = try? jsonDecoder.decode([String:LastFMAlbum].self, from:data) {
+                    completion(artist, lastfmResponse["album"])
                 }
             }
         }
-        
         task.resume()
     }
-    
     
     func artistHandler (delegate: ArtistDelegate, fetchedArtists: [Artist]?) -> Void {
         
@@ -143,8 +152,6 @@ class FetchController {
                 //let url:URL = (fArtist.getLastFMImage(size: .medium)?.url)!
                 //let artist = Artist(name: fArtist.name, listeners: fArtist.listeners, cover: .url(url))
                 artists.append(artist)
-                
-                print("artist: \(artist)")
                 fetchDiscography(artist: artist, completion: discographyHandler)
             }
             
@@ -155,25 +162,25 @@ class FetchController {
     func discographyHandler (artist: Artist, discographyInfo : [LastFMDiscography]?) -> Void {
         if let discography = discographyInfo {
             
-            print("artist: \(artist.name)")
-            for album in discography {
-                
-                print("discography: \(album)")
-                /*
-                fetchAlbum(artist: artist, discography: album) { (artist, album) in
+            for fmAlbum in discography {
+                fetchAlbum(artist: artist, discography: fmAlbum) { (artist, fmAlbum) in
                     
-                    if let album = album{
-                        print("\n-artist: \(artist.name)")
-                        print("-album: \(album.name)"  )
-                        print("-cover: \(album.getLastFMImage(size: .medium)!.url)")
+                    if let fmAlbum = fmAlbum {
+
+                        let urlcover = fmAlbum.getLastFMImage(size: .medium)!.url
                         
-                        for track in album.tracks {
+                        let album = Album(artist: artist, name: fmAlbum.name, year: "1999", cover: .url(urlcover))
+                        
+                        print("\n-artist: \(artist.name)")
+                        print("-album: \(album)"  )
+                        print("-cover: \(fmAlbum.getLastFMImage(size: .medium)!.url)")
+                        
+                        for track in fmAlbum.tracks {
                             print("-- \(track)")
                         }
-                        //print(album.tracks)
                     }
                 }
-                */
+                
             }
         }
     }

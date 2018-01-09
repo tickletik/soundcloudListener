@@ -38,7 +38,16 @@ class AlbumViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         
         if let album = album {
-            imageView?.image = UIImage(named: album.cover)
+            
+            var image: UIImage?
+            switch album.cover {
+            case .named(let named):
+                image = UIImage(named: named)!
+            case .url(let url):
+                image = UIImage(url: url)!
+            }
+            
+            imageView?.image = image
         }
     }
 
