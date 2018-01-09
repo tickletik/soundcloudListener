@@ -8,38 +8,39 @@
 
 import Foundation
 
-class LastFMDiscography: Decodable, CustomStringConvertible {
+struct LastFMImage: Codable, CustomStringConvertible {
+    
     var description: String {
         get {
-            return "LastFMDiscography(name: \(name), images: \(images))"
+            return "LastFMImage(size: \(size), url: \(url))"
         }
     }
     
+    var size: String
+    var url: URL
+    
+    enum Sizes: String {
+        case small
+        case medium
+        case large
+        case extralarge
+        case mega
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case url = "#text"
+        case size
+    }
+}
+
+class LastFMDiscography: Decodable {
+    
     var name: String
-    var images: [LastFMImage]
     
     private enum CodingKeys: String, CodingKey {
         case name
-        case images = "image"
     }
     
-    func getLastFMImage(size: LastFMImage.Sizes) -> LastFMImage? {
-        
-        for image in images {
-            if image.size == size.rawValue {
-                return image
-            }
-        }
-        
-        return nil
-    }
-    
-    required init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        
-        name = try values.decode(String.self, forKey: .name)
-        images = try values.decode([LastFMImage].self, forKey: .images)
-    }
 }
 
 
