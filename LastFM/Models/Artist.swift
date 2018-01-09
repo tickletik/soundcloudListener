@@ -88,10 +88,10 @@ extension Artist {
             
             let kansas = Artist(name: "Kansas", listeners: 324, cover: .named("Kansas - Point of Know Return.jpg") )
             
-            let kansas_know =  Album(artist: kansas, name: "Point of Know Return", year: "1977", cover: .named("Kansas - Point of Know Return.jpg"))
-            let kansas_america = Album(artist: kansas, name: "Song for America", year: "1975", cover: .named("Kansas_-_Song_for_America.jpg"))
-            let kansas_kansas = Album(artist: kansas, name: "Kansas", year: "1974", cover: .named("Kansas_-_Kansas.jpg"))
-            let kansas_overture = Album(artist: kansas, name: "Leftoverture", year: "1976", cover: .named("Kansas_-_Leftoverture.jpg"))
+            let kansas_know =  Album(artist: kansas, name: "Point of Know Return", cover: .named("Kansas - Point of Know Return.jpg"))
+            let kansas_america = Album(artist: kansas, name: "Song for America", cover: .named("Kansas_-_Song_for_America.jpg"))
+            let kansas_kansas = Album(artist: kansas, name: "Kansas", cover: .named("Kansas_-_Kansas.jpg"))
+            let kansas_overture = Album(artist: kansas, name: "Leftoverture", cover: .named("Kansas_-_Leftoverture.jpg"))
             
             kansas_kansas.tracks.append(Track(album: kansas_kansas, number: 1, name: "Can I Tell You", duration: seconds(3,32) ))
             kansas_kansas.tracks.append(Track(album: kansas_kansas, number: 2, name: "Bringing It Back", duration: seconds(3,33) ))
@@ -140,9 +140,9 @@ extension Artist {
             
             let kool = Artist(name: "Kook and the Gang", listeners: 783, cover: .named("Kool_and_the_Gang1969.jpg"))
             
-            let kool_kool = Album(artist: kool, name: "Koll and the Gang", year: "1969", cover: .named("Kool_and_the_Gang1969.jpg"))
-            let kool_message = Album(artist: kool, name: "Music Is the Message", year: "1972", cover: .named("Music_Is_The_Message1972.jpg"))
-            let kool_times = Album(artist: kool, name: "Good Times", year: "1972", cover: .named("Good_Times1972.jpg"))
+            let kool_kool = Album(artist: kool, name: "Koll and the Gang", cover: .named("Kool_and_the_Gang1969.jpg"))
+            let kool_message = Album(artist: kool, name: "Music Is the Message", cover: .named("Music_Is_The_Message1972.jpg"))
+            let kool_times = Album(artist: kool, name: "Good Times", cover: .named("Good_Times1972.jpg"))
             
             kool_kool.tracks.append(Track(album: kool_kool, number: 1, name: "Kool & The Gang", duration: seconds(2, 54)))
             kool_kool.tracks.append(Track(album: kool_kool, number: 2, name: "Breeze & Soul", duration: seconds(5, 29)))
@@ -182,11 +182,11 @@ extension Artist {
             
             let redhotchili = Artist(name: "Red Hot Chili Peppers", listeners: 2005, cover: .named("red hot chili peppers.jpg"))
             
-            redhotchili.discography.append(Album(artist: redhotchili, name: "The Red Hot Chili Peppers", year: "1984", cover: .named("RHCP.1984.jpg")))
-            redhotchili.discography.append(Album(artist: redhotchili, name: "Freaky Styley", year: "1985", cover: .named ("RHCP.Freakystyleyalbumcover.jpg")))
-            redhotchili.discography.append(Album(artist: redhotchili, name: "The Uplift Mofo Party Plan", year: "1987", cover: .named ("RHCP.UpliftMofoCover.jpg")))
-            redhotchili.discography.append(Album(artist: redhotchili, name: "Mother's Milk", year: "1989", cover: .named("RHCP.Mother'sMilkAlbumcover.jpg")))
-            redhotchili.discography.append(Album(artist: redhotchili, name: "Blood Sugar Sex Magic", year: "1991", cover: .named("RHCP.BSSM.jpg")))
+            redhotchili.discography.append(Album(artist: redhotchili, name: "The Red Hot Chili Peppers", cover: .named("RHCP.1984.jpg")))
+            redhotchili.discography.append(Album(artist: redhotchili, name: "Freaky Styley", cover: .named ("RHCP.Freakystyleyalbumcover.jpg")))
+            redhotchili.discography.append(Album(artist: redhotchili, name: "The Uplift Mofo Party Plan", cover: .named ("RHCP.UpliftMofoCover.jpg")))
+            redhotchili.discography.append(Album(artist: redhotchili, name: "Mother's Milk", cover: .named("RHCP.Mother'sMilkAlbumcover.jpg")))
+            redhotchili.discography.append(Album(artist: redhotchili, name: "Blood Sugar Sex Magic", cover: .named("RHCP.BSSM.jpg")))
             channelArray.append(redhotchili)
             
             channelArray.append(Artist(name: "Boston", listeners: 6032, cover: .named( "Boston - Dont Look Back.jpg") ))

@@ -17,15 +17,13 @@ class Album: CustomStringConvertible {
     
     var artist: Artist
     var name: String
-    var year: String
     var cover: Cover 
     
     var tracks: [Track] = []
     
-    init(artist: Artist, name: String, year: String, cover: Cover) {
+    init(artist: Artist, name: String, cover: Cover) {
         self.artist = artist
         self.name = name
-        self.year = year
         self.cover = cover
     }
 }
