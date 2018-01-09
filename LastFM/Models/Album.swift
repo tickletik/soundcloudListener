@@ -8,46 +8,55 @@
 
 import Foundation
 
-class Album: CustomStringConvertible {
+class Album: Decodable, CustomStringConvertible {
     var description: String {
         get {
-            return "Album \(artist.name) - \(name)"
+            return "Album \(String(describing: artist?.name)) - \(name)"
         }
     }
     
-    var artist: Artist
+    var artist: Artist?
+    var images: [LastFMImage]?
+
     var name: String
     var cover: Cover 
-    
     var tracks: [Track] = []
+
+    enum CodingKeys: String, CodingKey {
+        case name
+        case cover = "image"
+        case tracks
+    }
     
     init(artist: Artist, name: String, cover: Cover) {
         self.artist = artist
         self.name = name
         self.cover = cover
     }
-}
 
-class LastFMAlbum: LastFMBase, CustomStringConvertible {
-    var description: String {
-        get {
-            return "LastFMAlbum()"
-        }
-    }
-    
-    let tracks: [Track]
-    
-    enum CodingKeys: String, CodingKey {
-        case tracks
-    }
-    
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
+        self.name = try values.decode(String.self, forKey: .name)
+
         let tracktest = try values.decode([String: [Track]].self, forKey: .tracks)
         tracks = tracktest["track"]!
-        
-        try super.init(from: decoder)
+
+        images = try values.decode([LastFMImage].self, forKey: .cover)
+        let url = Artist.extractImageURL(images: images!, size: .medium)
+        self.cover = .url(url!)
     }
-    
+}
+
+extension Album {
+    static func extractImageURL(images: [LastFMImage], size: LastFMImage.Sizes) -> URL? {
+        
+        for image in images {
+            if image.size == size.rawValue {
+                return image.url
+            }
+        }
+        
+        return nil
+    }
 }
