@@ -41,15 +41,17 @@ class ChannelListTableVC: UITableViewController, ArtistDelegate {
             }
             tableRows.append((artist, image ))
         }
+        
+        tableView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //let fetch = FetchController()
-        //fetch.fetchArtists(country: .usa, limit: 2, delegate: self, completion: fetch.artistHandler)
+        let fetch = FetchController()
+        fetch.fetchArtists(country: .usa, limit: 2, delegate: self, completion: fetch.artistHandler)
         
-        setArtists(artists: Artist.defaultData)
+        //setArtists(artists: Artist.defaultData)
     }
     
     // MARK: - Table view data source

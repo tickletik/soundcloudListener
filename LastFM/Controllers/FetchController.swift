@@ -91,7 +91,7 @@ class FetchController {
                     print("dowloaded imageURL with response code \(res.statusCode)")
                     
                     if let imageData = data {
-                        let image = UIImage(data: imageData)
+                        let _ = UIImage(data: imageData)
                         //artist.cover = image
                     }
                 }
