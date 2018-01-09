@@ -34,7 +34,7 @@ class Artist: Decodable, CustomStringConvertible {
     var listeners: Int
     var cover: Cover
     
-    var discography: [Album]?
+    var discography: [Album] = []
     var images: [LastFMImage]?
 
     private enum CodingKeys: String, CodingKey {
@@ -48,7 +48,6 @@ class Artist: Decodable, CustomStringConvertible {
         self.listeners = listeners
         
         self.cover = cover
-        self.discography = []
     }
     
     required init(from decoder: Decoder) throws {
@@ -131,10 +130,10 @@ extension Artist {
             kansas_overture.tracks.append(Track(album: kansas_overture, number: 8, name: "Magnum Opus", time: seconds(8,25) ))
             
             
-            kansas.discography?.append(kansas_kansas)
-            kansas.discography?.append(kansas_america)
-            kansas.discography?.append(kansas_know)
-            kansas.discography?.append(kansas_overture)
+            kansas.discography.append(kansas_kansas)
+            kansas.discography.append(kansas_america)
+            kansas.discography.append(kansas_know)
+            kansas.discography.append(kansas_overture)
             
             channelArray.append(kansas)
             
@@ -176,18 +175,18 @@ extension Artist {
             kool_times.tracks.append(Track(album: kool_times, number: 7, name: "Rated X", time: seconds(4, 2)))
             kool_times.tracks.append(Track(album: kool_times, number: 8, name: "Father, Father", time: seconds(5, 37)))
             
-            kool.discography?.append(kool_kool)
-            kool.discography?.append(kool_message)
-            kool.discography?.append(kool_times)
+            kool.discography.append(kool_kool)
+            kool.discography.append(kool_message)
+            kool.discography.append(kool_times)
             channelArray.append(kool)
             
             let redhotchili = Artist(name: "Red Hot Chili Peppers", listeners: 2005, cover: .named("red hot chili peppers.jpg"))
             
-            redhotchili.discography?.append(Album(artist: redhotchili, name: "The Red Hot Chili Peppers", year: "1984", cover: .named("RHCP.1984.jpg")))
-            redhotchili.discography?.append(Album(artist: redhotchili, name: "Freaky Styley", year: "1985", cover: .named ("RHCP.Freakystyleyalbumcover.jpg")))
-            redhotchili.discography?.append(Album(artist: redhotchili, name: "The Uplift Mofo Party Plan", year: "1987", cover: .named ("RHCP.UpliftMofoCover.jpg")))
-            redhotchili.discography?.append(Album(artist: redhotchili, name: "Mother's Milk", year: "1989", cover: .named("RHCP.Mother'sMilkAlbumcover.jpg")))
-            redhotchili.discography?.append(Album(artist: redhotchili, name: "Blood Sugar Sex Magic", year: "1991", cover: .named("RHCP.BSSM.jpg")))
+            redhotchili.discography.append(Album(artist: redhotchili, name: "The Red Hot Chili Peppers", year: "1984", cover: .named("RHCP.1984.jpg")))
+            redhotchili.discography.append(Album(artist: redhotchili, name: "Freaky Styley", year: "1985", cover: .named ("RHCP.Freakystyleyalbumcover.jpg")))
+            redhotchili.discography.append(Album(artist: redhotchili, name: "The Uplift Mofo Party Plan", year: "1987", cover: .named ("RHCP.UpliftMofoCover.jpg")))
+            redhotchili.discography.append(Album(artist: redhotchili, name: "Mother's Milk", year: "1989", cover: .named("RHCP.Mother'sMilkAlbumcover.jpg")))
+            redhotchili.discography.append(Album(artist: redhotchili, name: "Blood Sugar Sex Magic", year: "1991", cover: .named("RHCP.BSSM.jpg")))
             channelArray.append(redhotchili)
             
             channelArray.append(Artist(name: "Boston", listeners: 6032, cover: .named( "Boston - Dont Look Back.jpg") ))

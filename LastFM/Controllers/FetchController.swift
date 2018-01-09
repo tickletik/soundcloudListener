@@ -171,6 +171,8 @@ class FetchController {
                         
                         let album = Album(artist: artist, name: fmAlbum.name, year: "1999", cover: .url(urlcover))
                         
+                        artist.discography?.append(album)
+                        
                         print("\n-artist: \(artist.name)")
                         print("-album: \(album)"  )
                         print("-cover: \(fmAlbum.getLastFMImage(size: .medium)!.url)")

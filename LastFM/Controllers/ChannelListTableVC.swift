@@ -34,9 +34,9 @@ class ChannelListTableVC: UITableViewController, ArtistDelegate {
         for artist in artists {
             
             switch artist.cover {
-            case .named(let named):
+            case Cover.named(let named):
                 image = UIImage(named: named)!
-            case .url(let url):
+            case Cover.url(let url):
                 image = UIImage(url: url)!
             }
             tableRows.append((artist, image ))
