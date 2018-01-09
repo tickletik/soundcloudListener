@@ -99,7 +99,6 @@ class FetchController {
             
             if let data = data,
                 let _ = try? JSONSerialization.jsonObject(with: data) {
-                // print(rawJSON)
                 
                 if let lastfmResponse = try? jsonDecoder.decode(TopAlbums.self, from:data) {
                     completion(artist, lastfmResponse.albums)
@@ -130,9 +129,6 @@ class FetchController {
             if let data = data,
                 let _ = try? JSONSerialization.jsonObject(with: data) {
                 
-                // print(rawJSON)
-                //print("got album data for \(artist.name) \(discography.name)")
-                
                 if let lastfmResponse = try? jsonDecoder.decode([String:LastFMAlbum].self, from:data) {
                     completion(artist, lastfmResponse["album"])
                 }
@@ -149,8 +145,6 @@ class FetchController {
             
             for artist in fetchedArtists {
                 
-                //let url:URL = (fArtist.getLastFMImage(size: .medium)?.url)!
-                //let artist = Artist(name: fArtist.name, listeners: fArtist.listeners, cover: .url(url))
                 artists.append(artist)
                 fetchDiscography(artist: artist, completion: discographyHandler)
             }
@@ -167,18 +161,17 @@ class FetchController {
                     
                     if let fmAlbum = fmAlbum {
 
-                        let urlcover = fmAlbum.getLastFMImage(size: .medium)!.url
+                        let urlcover = fmAlbum.getLastFMImage(size: .mega)!.url
                         
                         let album = Album(artist: artist, name: fmAlbum.name, year: "1999", cover: .url(urlcover))
                         
                         artist.discography.append(album)
                         
-                        print("\n-artist: \(artist.name)")
-                        print("-album: \(album)"  )
-                        print("-cover: \(fmAlbum.getLastFMImage(size: .medium)!.url)")
+                        for fmTrack in fmAlbum.tracks {
                         
-                        for track in fmAlbum.tracks {
-                            print("-- \(track)")
+                            let track = Track(album: album, number: fmTrack.number, name: fmTrack.name, time: Double(fmTrack.seconds))
+                            album.tracks.append(track)
+                            print("-- \(fmTrack)")
                         }
                     }
                 }
