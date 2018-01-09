@@ -103,18 +103,19 @@ class FetchController {
     
     
     func artistHandler (delegate: ArtistDelegate, fetchedArtists: [LastFMArtist]?) -> Void {
-        print("in artist handler")
+        
         if let fetchedArtists = fetchedArtists {
             
             var artists: [Artist] = []
             
             for fArtist in fetchedArtists {
                 
-                //let artist: Artist = Artist(name: fArtist.name, listeners: fArtist.listeners)
-                //artists.append(artist)
+                let url:URL = (fArtist.getLastFMImage(size: .medium)?.url)!
+                let artist = Artist(name: fArtist.name, listeners: fArtist.listeners, cover: .url(url))
+                artists.append(artist)
+                
                 fArtist.debug()
                 //fetchDiscography(artist: artist, completion: discographyHandler)
-                
             }
             
             delegate.setArtists(artists: artists)
