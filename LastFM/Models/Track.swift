@@ -8,28 +8,51 @@
 
 import Foundation
 
-class Track: CustomStringConvertible {
+class Track: Decodable, CustomStringConvertible {
     
     var description: String {
         get {
-            let min = Int(time) / 60
-            let sec = Int(time) % 60
-            
-            
+            let duration = Int(duration)
+            let min = duration / 60 
+            let sec = duration % 60
             return "\(number). \(name) (\(min):\(sec))"
         }
     }
+
     
     var album: Album
-    var number: Int
+
     var name: String
-    var time: TimeInterval
+    var duration: TimeInterval
+    var number: Int
+
+    enum CodingKeys: String, CodingKey {
+        case name
+        case duration
+        case number = "@attr"
+    }
     
+    enum AttrKeys: String, CodingKey {
+        case rank
+    }
+
     init(album: Album, number: Int, name: String, time: TimeInterval ) {
         self.album = album
         self.number = number
         self.name = name
         self.time = time
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        name = try values.decode(String.self, forKey: .name)
+        duration = Int(try values.decode(String.self, forKey: .duration))!
+        
+        let rankContainer = try values.nestedContainer(keyedBy: AttrKeys.self, forKey: .number )
+        let rank = try rankContainer.decode(String.self, forKey: .rank)
+        
+        number = Int(rank)!
     }
 }
 
