@@ -16,6 +16,7 @@
 		E377534B1FF91F1500EB8E31 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = E377534A1FF91F1500EB8E31 /* Album.swift */; };
 		E377534D1FF9248900EB8E31 /* DiscographyTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E377534C1FF9248900EB8E31 /* DiscographyTableVC.swift */; };
 		E377534F1FF94E3D00EB8E31 /* DiscographyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E377534E1FF94E3D00EB8E31 /* DiscographyCell.swift */; };
+		E38E1E892004485E004674F2 /* LastFMDiscography.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38E1E882004485E004674F2 /* LastFMDiscography.swift */; };
 		E39D7ECE200405F3008A6F09 /* LastFMImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D7ECD200405F3008A6F09 /* LastFMImage.swift */; };
 		E39D7ED020040688008A6F09 /* LastFMBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D7ECF20040688008A6F09 /* LastFMBase.swift */; };
 		E39D7ED2200406BE008A6F09 /* LastFMArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D7ED1200406BE008A6F09 /* LastFMArtist.swift */; };
@@ -37,6 +38,7 @@
 		E377534A1FF91F1500EB8E31 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		E377534C1FF9248900EB8E31 /* DiscographyTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscographyTableVC.swift; sourceTree = "<group>"; };
 		E377534E1FF94E3D00EB8E31 /* DiscographyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscographyCell.swift; sourceTree = "<group>"; };
+		E38E1E882004485E004674F2 /* LastFMDiscography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastFMDiscography.swift; sourceTree = "<group>"; };
 		E39D7ECD200405F3008A6F09 /* LastFMImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastFMImage.swift; sourceTree = "<group>"; };
 		E39D7ECF20040688008A6F09 /* LastFMBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastFMBase.swift; sourceTree = "<group>"; };
 		E39D7ED1200406BE008A6F09 /* LastFMArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastFMArtist.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				E39D7ECD200405F3008A6F09 /* LastFMImage.swift */,
 				E39D7ECF20040688008A6F09 /* LastFMBase.swift */,
 				E39D7ED1200406BE008A6F09 /* LastFMArtist.swift */,
+				E38E1E882004485E004674F2 /* LastFMDiscography.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E38E1E892004485E004674F2 /* LastFMDiscography.swift in Sources */,
 				E37753361FF908DE00EB8E31 /* LastFM.xcdatamodeld in Sources */,
 				E39D7ED020040688008A6F09 /* LastFMBase.swift in Sources */,
 				E377534D1FF9248900EB8E31 /* DiscographyTableVC.swift in Sources */,

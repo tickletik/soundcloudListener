@@ -79,6 +79,36 @@ class FetchController {
         
         task.resume()
     }
+    
+    func fetchDiscography(artist: Artist, limit: Int = 2, completion: @escaping (Artist, [LastFMDiscography]?) -> Void) {
+        
+        let query: [String:String] = [
+            "method": "artist.gettopalbums",
+            "artist": artist.name,
+            "api_key": api_key,
+            "format": format,
+            "limit" : "\(limit)"
+        ]
+        
+        let searchURL = baseURL?.withQueries(query)!
+        
+        let task = URLSession.shared.dataTask(with: searchURL!) { (data, response, error) in
+            
+            
+            let jsonDecoder = JSONDecoder()
+            
+            if let data = data,
+                let _ = try? JSONSerialization.jsonObject(with: data) {
+                // print(rawJSON)
+                
+                if let lastfmResponse = try? jsonDecoder.decode(TopAlbums.self, from:data) {
+                    completion(artist, lastfmResponse.albums)
+                }
+            }
+        }
+        
+        task.resume()
+    }
 
     func fetchImage(imageURL: URL, artist: Artist) {
         
@@ -115,12 +145,37 @@ class FetchController {
                 artists.append(artist)
                 
                 fArtist.debug()
-                //fetchDiscography(artist: artist, completion: discographyHandler)
+                fetchDiscography(artist: artist, completion: discographyHandler)
             }
             
             delegate.setArtists(artists: artists)
         }
     }
     
+    func discographyHandler (artist: Artist, discographyInfo : [LastFMDiscography]?) -> Void {
+        if let discography = discographyInfo {
+            
+            print("artist: \(artist.name)")
+            for album in discography {
+                
+                print("discography: \(album)")
+                /*
+                fetchAlbum(artist: artist, discography: album) { (artist, album) in
+                    
+                    if let album = album{
+                        print("\n-artist: \(artist.name)")
+                        print("-album: \(album.name)"  )
+                        print("-cover: \(album.getLastFMImage(size: .medium)!.url)")
+                        
+                        for track in album.tracks {
+                            print("-- \(track)")
+                        }
+                        //print(album.tracks)
+                    }
+                }
+                */
+            }
+        }
+    }
     
 }
