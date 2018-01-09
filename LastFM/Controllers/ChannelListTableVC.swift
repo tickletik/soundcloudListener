@@ -8,30 +8,46 @@
 
 import UIKit
 
+extension UIImage {
+    convenience init?(url: URL?) {
+        guard let url = url else { return nil }
+        
+        do {
+            let data = try Data(contentsOf: url)
+            self.init(data: data)
+        } catch {
+            print("Cannot load image from url: \(url) with error: \(error)")
+            return nil
+        }
+    }
+}
 
 class ChannelListTableVC: UITableViewController, ArtistDelegate {
     
-    var artists: [Artist] = []
-    
     var tableRows: [(Artist, UIImage)] = []
-    
     var selectedArtist: Artist?
     
     func setArtists(artists: [Artist]) {
-        self.artists = artists
+        
+        var image:UIImage
         
         for artist in artists {
-            tableRows.append((artist, UIImage(named: artist.cover.value() as! String )! ))
+            
+            switch artist.cover {
+            case .named(let named):
+                image = UIImage(named: named)!
+            case .url(let url):
+                image = UIImage(url: url)!
+            }
+            tableRows.append((artist, image ))
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         //let fetch = FetchController()
         //fetch.fetchArtists(country: .usa, limit: 2, delegate: self, completion: fetch.artistHandler)
-        
         
         setArtists(artists: Artist.defaultData)
     }
@@ -45,7 +61,6 @@ class ChannelListTableVC: UITableViewController, ArtistDelegate {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableRows.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChannelCell", for: indexPath)
@@ -71,7 +86,7 @@ class ChannelListTableVC: UITableViewController, ArtistDelegate {
             let discographyTableVC = segue.destination as? DiscographyTableVC
             
             let indexPath = tableView.indexPathForSelectedRow!
-            let artist = artists[indexPath.row]
+            let (artist, _) = tableRows[indexPath.row]
             
             discographyTableVC?.artist = artist
         }
